@@ -1,0 +1,16 @@
+Planning:
+create database
+setup express: app, routes, services, doas  https://zellwk.com/blog/async-await-express/
+-change All express files to Async
+Testing restfulAPI
+
+implement Authorization and authentication 
+implement aws picture server
+
+
+Commands:
+npm install -g react app //globlal Install
+install yarn //maybe if getting errors or package.json missing dependencies
+//RX something with yarn to create react app
+create-react-app NameHere --template="typescript"  //create app w/typescript
+npm start //launch app
