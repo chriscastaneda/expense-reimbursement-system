@@ -71,4 +71,3 @@ SELECT posts.*, authors.first_name, authors.last_name, commenting.body, commenti
 FROM posts LEFT JOIN authors ON posts.authors_id = authors.id
 LEFT JOIN commenting ON authors.id = commenting.authors_id
 WHERE posts.title = 'Peters Article';
-

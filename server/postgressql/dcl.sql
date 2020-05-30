@@ -1,4 +1,4 @@
-/*DQL File*/
+/*DCL File*/
 CREATE ROLE blog_app_role LOGIN PASSWORD 'Password1';
 --DROP ROLE blog_app_role;
 
