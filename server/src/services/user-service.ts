@@ -16,16 +16,16 @@ export function getUserById(id: number): Promise<User> {
 export function saveUser(user: any): Promise<User> {
     const newUser = new User(
         undefined, //set undefined id to prevent sql injection
-        user.ers_username,
-        user.ers_password,
-        user.user_first_name,
-        user.user_last_name,
-        user.user_email,
+        user.userName,
+        user.password,
+        user.firstName,
+        user.lastName,
+        user.email,
         undefined //!Fix Here? user.roleId
     );
 
     // Validate new user properties
-    if (user.userName && user.password && user.firstName && user.lastName && user.email && user.roleId) {
+    if (user.userName && user.password && user.firstName && user.lastName && user.email) {
         return userDao.saveUser(newUser);
     } else {
         //console.log('User invalid');

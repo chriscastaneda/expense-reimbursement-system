@@ -42,9 +42,12 @@ export async function saveUser(user: User): Promise<User> {
 /**Update */
 export async function patchUser(user: User): Promise<User> {
     const sql = `UPDATE ers_users SET \
-                first_name = COALESCE($2, first_name), \
-                last_name = COALESCE($3, last_name), \
-                email = COALESCE($4, email) \
+                ers_username = COALESCE($2, ers_username), \
+                ers_password = COALESCE($3, ers_password), \
+                user_first_name = COALESCE($4, user_first_name), \
+                user_last_name = COALESCE($5, user_last_name), \
+                user_email = COALESCE($6, user_email), \
+                user_role_id = COALESCE($7, user_role_id) \
                 WHERE id = $1 RETURNING *`;
 
     const result = await dbConnection.query<UserRow>(sql, [
