@@ -1,13 +1,9 @@
 /*DML FILE*/
 
 --Author Table	
-INSERT INTO authors (first_name, last_name, email) VALUES 
-	('Peter', 'Parker', 'mjlover69@sonypictures.com'),
-	('Batman', 'Beyond', 'im-the-batman@detectivecomicscomics.com'), 
-	('Wade', 'Wilson', 'xforce_alumni@deadpool.edu'),
-	('Billy', 'Batson', 'dope.superhero@theshazamster.com'),
-	('Pepper', 'Potts', 'iloveyou3000@avengers.co'),
-	('Abby', 'Adams', 'abby.adams@gmail.com');
+INSERT INTO authors (ers_username, ers_password, user_first_name, user_last_name, user_email) VALUES 
+	('employee', 'password1', 'test', 'employee', 'employee@email.com'),
+	('manager', 'password1', 'test', 'manager', 'manager@email.com');
 --DROP TABLE authors;
 
 
