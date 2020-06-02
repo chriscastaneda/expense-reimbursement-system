@@ -2,6 +2,9 @@ import express from 'express';
 import bodyParser from  'body-parser';
 import { dbConnection } from './daos/db';
 import { userRouter } from './routers/user-router'; 
+import { reimburseRouter } from './routers/reimburse-router'; 
+import { roleRouter } from './routers/role-router'; 
+import { typeRouter } from './routers/type-router';
 
 /**Initialize */
 const app = express();
@@ -13,6 +16,10 @@ app.use(bodyParser.json());
 
 /**Routers */
 app.use('/users', userRouter);
+app.use('/reimbursements', reimburseRouter);
+app.use('/roles', roleRouter);
+app.use('/types', typeRouter);
+
 
 /**Pool connection error handle */
 process.on('unhandledRejection', () => {

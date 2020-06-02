@@ -25,7 +25,7 @@ reimburseRouter.get('/:id', async(request, response, next)=> {
     let reimburse: Reimburse;
 
     try {
-        reimburse = await reimburseService.getReimburserById(id);
+        reimburse = await reimburseService.getReimburseById(id);
     } catch (err) {
         response.sendStatus(500);
         return;

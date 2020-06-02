@@ -8,11 +8,10 @@ implement Authorization and authentication
 implement aws picture server
 
 
-App UI/UX
+App UI/UX:
 -------------
-Empolyee: USERS
-----------
--login: [Page]::UserTable
+Empolyee:
+-login: [Page]::UserTable, roleTable
     id -generated
 username
 password
@@ -57,7 +56,7 @@ status -status view
 
 =======================================================
 
-Manager:
+Manager
 ----------
 -login: [Page]::UserTable
     id -generated
@@ -73,10 +72,13 @@ user-role
 ###UserTable -Join- RoleTable###
 
 ====================================================
--View all reimb. all employees
+-View all reimb. for all employees
+
+##
+
 -filter request by status
 
-
+##reimburse -Jion- status##
 
 ============================================
 -aprove/deny request
