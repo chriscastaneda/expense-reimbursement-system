@@ -5,6 +5,7 @@ import { userRouter } from './routers/user-router';
 import { reimburseRouter } from './routers/reimburse-router'; 
 import { roleRouter } from './routers/role-router'; 
 import { typeRouter } from './routers/type-router';
+import { statusRouter } from './routers/status-router';
 
 /**Initialize */
 const app = express();
@@ -19,6 +20,7 @@ app.use('/users', userRouter);
 app.use('/reimbursements', reimburseRouter);
 app.use('/roles', roleRouter);
 app.use('/types', typeRouter);
+app.use('/status', statusRouter);
 
 
 /**Pool connection error handle */

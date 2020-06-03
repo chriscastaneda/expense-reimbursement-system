@@ -21,14 +21,14 @@ export function saveUser(user: any): Promise<User> {
         user.firstName,
         user.lastName,
         user.email,
-        undefined //!Fix Here? user.roleId
+        undefined //!Fix Here? roleId
     );
 
     // Validate new user properties
     if (user.userName && user.password && user.firstName && user.lastName && user.email) {
         return userDao.saveUser(newUser);
     } else {
-        //console.log('User invalid');
+        console.log('User service invalid');
         return new Promise((resolve, reject) => reject(422));
     };
 };

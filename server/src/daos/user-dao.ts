@@ -35,7 +35,7 @@ export async function saveUser(user: User): Promise<User> {
         user.lastName,
         user.email
     ]);
-
+    console.log('Doa created');
     return result.rows.map(User.from)[0];
 };
 

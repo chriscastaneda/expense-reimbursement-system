@@ -25,17 +25,17 @@ CREATE TABLE ers_users (
 
 CREATE TABLE ers_reimbursement_status (
 	id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-	reimb_status VARCHAR(10)
+	reimb_status VARCHAR(50)
 );
 
 CREATE TABLE ers_reimbursement_type (
 	id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-	reimb_type VARCHAR(10)
+	reimb_type VARCHAR(50)
 );
 
 CREATE TABLE ers_user_roles (
 	id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-	user_role VARCHAR(10)
+	user_role VARCHAR(50)
 );
 
 

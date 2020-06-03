@@ -50,7 +50,7 @@ type -Type: lodging, travel, food, other
 -view past tickets
     status-id
 status -status view
-
+Pendin, accept, denied
 
 ###status###
 
@@ -99,6 +99,13 @@ type -Type: lodging, travel, food, other
 status -status view
 
 ###reimburse -Jion- type -Jion- status###
+
+===============================
+users:CRUD
+roles:CRUD
+reimburs:CRUD
+type:CR
+status:CRU
 
 
 

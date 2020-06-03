@@ -42,9 +42,11 @@ userRouter.get('/:id', async(request, response, next)=> {
 /**Create */
  userRouter.post('', async(request, response, next)=> {
     const user = request.body;
-    let newUser: User
+
+    let newUser: User;
+
     try {
-        newUser = await userService.saveUser(user);
+        newUser = await userService.saveUser(console.log(user));
         response.status(201);
         response.json(newUser);
     } catch (err) {

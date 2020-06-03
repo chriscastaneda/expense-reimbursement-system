@@ -25,7 +25,7 @@ typeRouter.get('/:id', async(request, response, next)=> {
     let type: Type;
 
     try {
-        type = await typeService.getTypeById(id);
+        type = await typeService.deleteTypeById(id);
     } catch (err) {
         response.sendStatus(500);
         return;
@@ -48,7 +48,7 @@ typeRouter.get('/:id', async(request, response, next)=> {
         response.status(201);
         response.json(newType);
     } catch (err) {
-        console.log('Type router invalid');
+        console.log(err,'Type router invalid');
         response.sendStatus(500);
         return;
     }
@@ -84,6 +84,7 @@ typeRouter.patch('', async(request, response, next)=> {
     try {
         deletedType = await typeService.deleteTypeById(id);
     } catch (err) {
+        //console.log(err)
         response.sendStatus(500);
     }
 
