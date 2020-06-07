@@ -7,6 +7,9 @@ import { roleRouter } from './routers/role-router';
 import { typeRouter } from './routers/type-router';
 import { statusRouter } from './routers/status-router';
 
+
+import { authenticationRouter } from './routers/authenticate-router'; //!NEW LOGIN CODE
+
 /**Initialize */
 const app = express();
 const port  = process.env.PORT || 3000;
@@ -21,6 +24,9 @@ app.use('/reimbursements', reimburseRouter);
 app.use('/roles', roleRouter);
 app.use('/types', typeRouter);
 app.use('/status', statusRouter);
+
+
+app.use('/authentication', authenticationRouter) //!NEW LOGIN CODE
 
 
 /**Pool connection error handle */

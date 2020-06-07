@@ -25,6 +25,16 @@ INSERT INTO ers_reimbursement (reimb_amount, reimb_sumitted, reimb_resolved, rei
 	reimb_type_id INTEGER REFERENCES ers_reimbursement_type(id)
 	--------------------------------------------------------------------------------
 
+INSERT INTO ers_user_roles (user_role) VALUES ('manager Role');
+
+	
+	
+	
+	
+	
+	
+	
+---------------------------------------------------------------------	
 --Comments Table
 INSERT INTO commenting (comment_body, publish_date, authors_id, post_id) VALUES 
 	('Peters Comments Here', '2020-01-01'::DATE, 1, 1),

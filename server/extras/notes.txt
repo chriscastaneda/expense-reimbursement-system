@@ -152,9 +152,11 @@ npm install --save-dev supertest @types/supertest
 jest.config.ts		/*add manually*/
 jest.config.js		/*add manually*/
 
+npm install cors jsonwebtoken bcryptjs
+npm install --save-dev @types/bcryptjs @types/body-parser @types/cors @types/jsonwebtoken
 
 
--package.json:
+-Package.json file:
 "scripts": {
     "start": "nodemon ./src/app.ts",
     "test": "jest --verbose --watch --coverage --watchAll"
