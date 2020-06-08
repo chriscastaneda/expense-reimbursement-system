@@ -1,12 +1,13 @@
 import express from 'express';
 import * as userService from '../services/user-service';
 import { User } from '../models/User';
+import * as authenticateJWT from './authenticate-router'; //!NEW LOGIN CODE
 /**CRUD logic */
 
 export const userRouter = express.Router();
 
 /**Read All Users */
-userRouter.get('', async(request, response, next)=> {
+userRouter.get('',  authenticateJWT.authenticateJWT, async(request, response, next)=> { //!NEW LOGIN CODE
     let users: User[];
     
     try{
