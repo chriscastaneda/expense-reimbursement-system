@@ -129,11 +129,8 @@ status:CRU
 
 
 Commands:
-npm install -g react app //globlal Install
-install yarn //maybe if getting errors or package.json missing dependencies
-//RX something with yarn to create react app
-create-react-app NameHere --template="typescript"  //create app w/typescript
-npm start //launch app
+npm start //Start server
+npm test //run test
 
 Setup:
 --------
@@ -155,6 +152,7 @@ jest.config.js		/*add manually*/
 npm install cors jsonwebtoken bcryptjs
 npm install --save-dev @types/bcryptjs @types/body-parser @types/cors @types/jsonwebtoken
 
+============================
 
 -Package.json file:
 "scripts": {
