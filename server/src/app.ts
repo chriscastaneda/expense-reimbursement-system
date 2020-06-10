@@ -1,9 +1,9 @@
 import express from 'express';
 import bodyParser from  'body-parser';
 import { dbConnection } from './daos/db';
-import { userRouter } from './routers/user-router'; 
-import { reimburseRouter } from './routers/reimburse-router'; 
+import { employeeRouter } from './routers/employee-router'; 
 import { authenticationRouter } from './routers/authenticate-router'; //!NEW LOGIN CODE
+import { managerRouter } from './routers/manager-router';
 
 /**Initialize */
 const app = express();
@@ -22,8 +22,8 @@ app.use((request, response, next)=> {
 app.use(bodyParser.json());
 
 /**Routers */
-app.use('/users', userRouter);
-app.use('/reimbursements', reimburseRouter);
+app.use('/employees', employeeRouter);
+app.use('/managers', managerRouter);
 app.use('/authentication', authenticationRouter) //!NEW LOGIN CODE
 
 

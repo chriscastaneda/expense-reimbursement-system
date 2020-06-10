@@ -1,5 +1,5 @@
 /**Convert Postres Schema into Javascript Object */
-export class Reimburse {
+export class Approval {
     reimbId: number;
     amount: number;
     sumitDate: Date;
@@ -12,8 +12,8 @@ export class Reimburse {
     type: number;
 
     /**Create new JS instance object from database schema */
-    static from(object: ReimburseRow): Reimburse {
-        const reimburse = new Reimburse(
+    static from(object: ApprovalRow): Approval {
+        const approval = new Approval(
             object.reimb_id,
             object.reimb_amount, 
             new Date(object.reimb_sumit_date),
@@ -25,10 +25,10 @@ export class Reimburse {
             object.reimb_status_id,
             object.reimb_type_id
         );
-        return reimburse;
+        return approval;
     };
     
-    /**User constructor */
+    /**Approval constructor */
     constructor(reimbId: number, amount: number, sumitDate: Date, resolvedDate: Date, description: string, 
         reciept: string, authorId: number, resolverId:number, statusId: number, type: number){
 
@@ -46,7 +46,7 @@ export class Reimburse {
 }
 
 /**Template object of Database Table */
-export interface ReimburseRow {
+export interface ApprovalRow {
     reimb_id: number;
     reimb_amount: number;
     reimb_sumit_date: Date;

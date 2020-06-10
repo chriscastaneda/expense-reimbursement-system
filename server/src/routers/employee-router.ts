@@ -1,18 +1,20 @@
 import express from 'express';
-import * as userService from '../services/user-service';
-import { User } from '../models/User';
+import * as employeeService from '../services/employee-service';
+import { Dashboard } from '../models/Dashboard';
+import { Pending } from '../models/EmployeePending';
+import { Reimburse } from '../models/Reimburse';
 import * as authenticateJWT from './authenticate-router'; //!NEW LOGIN CODE
 /**CRUD logic */
 
-export const userRouter = express.Router();
+export const employeeRouter = express.Router();
 
-/**Read All Users */  //authenticateJWT.authenticateJWT, async
-userRouter.get('',  async(request, response, next)=> { //!NEW LOGIN CODE
-    let users: User[];
+/**Dashboard: Read All tickets */  //authenticateJWT.authenticateJWT, async
+employeeRouter.get('/dashboard',  async(request, response, next)=> { //!NEW LOGIN CODE
+    let dashboards: Dashboard[];
     
     try{
-        users = await userService.getAllUsers();
-        response.json(users);
+        dashboards = await employeeService.getAllDashboards();
+        response.json(dashboards);
     }catch(err){
         response.sendStatus(500);
         return;
@@ -20,7 +22,44 @@ userRouter.get('',  async(request, response, next)=> { //!NEW LOGIN CODE
     next();
 });
 
-/**Read by id */
+
+/**Pending: Read all*/
+employeeRouter.get('/pending',  async(request, response, next)=> { //!NEW LOGIN CODE
+    let pendings: Pending[];
+    
+    try{
+        pendings = await employeeService.getAllPendings();
+        response.json(pendings);
+    }catch(err){
+        response.sendStatus(500);
+        return;
+    }
+    next();
+});
+
+
+/**Add Reimbursemnet: Create */
+employeeRouter.post('/reimburse', async(request, response, next)=> {
+    const reimburse = request.body;
+
+    let newReimburse: Reimburse;
+
+    try {
+        newReimburse = await employeeService.saveReimbursement(console.log(reimburse));
+        response.status(201);
+        response.json(newReimburse);
+    } catch (err) {
+        response.sendStatus(500);
+        console.log('REimburse Router', err);
+        return;
+    }
+    next();
+ });
+
+
+/*
+
+//Read by id *
 userRouter.get('/:id', async(request, response, next)=> {
     const id = parseInt(request.params.id);
     let user: User;
@@ -40,7 +79,7 @@ userRouter.get('/:id', async(request, response, next)=> {
     next();
  });
  
-/**Create */
+//Create 
  userRouter.post('', async(request, response, next)=> {
     const user = request.body;
 
@@ -52,13 +91,12 @@ userRouter.get('/:id', async(request, response, next)=> {
         response.json(newUser);
     } catch (err) {
         response.sendStatus(500);
-        console.log(err);
         return;
     }
     next();
  });
  
-/**Update */
+//Update 
  userRouter.patch('', async(request, response, next)=> {
     const user = request.body;
     let updatedUser: User;
@@ -79,7 +117,7 @@ userRouter.get('/:id', async(request, response, next)=> {
     next();
  });
  
- /**Delete */
+ //Delete 
  userRouter.delete('/:id', async(request, response, next)=> {
     const id = parseInt(request.params.id);
     let deletedUser: User;
@@ -97,4 +135,4 @@ userRouter.get('/:id', async(request, response, next)=> {
         response.json(deletedUser);
     }
     next();
- });
+ });*/

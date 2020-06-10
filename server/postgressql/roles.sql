@@ -56,7 +56,7 @@ SELECT
 	reimb_type
 	FROM ers_reimbursement
 	LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id
-	WHERE ers_reimbursement.reimb_id = 1;
+	WHERE ers_reimbursement.reimb_id = 3;
 
 --Employee Add Reimbursements
 SELECT  
@@ -92,6 +92,27 @@ SELECT
 	LEFT JOIN ers_reimbursement_status ON ers_reimbursement.reimb_status_id = ers_reimbursement_status.status_id
 	LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id;
 	
+
+--Manager Filter by Status
+SELECT 
+	ers_reimbursement.reimb_id, 
+	ers_reimbursement.reimb_amount, 
+	ers_reimbursement.reimb_sumit_date, 
+	ers_reimbursement.reimb_resolved_date, 
+	ers_reimbursement.reimb_description,
+	
+	ers_users.user_first_name, ers_users.user_last_name,
+	
+	reimb_status,
+	
+	reimb_type
+	
+	FROM ers_reimbursement
+	LEFT JOIN ers_users ON ers_reimbursement.reimb_author_id = ers_users.user_id
+	LEFT JOIN ers_reimbursement_status ON ers_reimbursement.reimb_status_id = ers_reimbursement_status.status_id
+	LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id
+	WHERE ers_reimbursement_status.status_id = 3;
+
 
 --Manager Pending
 SELECT  
