@@ -1,56 +1,37 @@
 /*DML FILE*/
 
 --Users Table	
-INSERT INTO ers_users (ers_username, ers_password, user_first_name, user_last_name, user_email) VALUES 
-	('employee', 'password1', 'test', 'employee', 'employee@email.com'),
-	('manager', 'password1', 'test', 'manager', 'manager@email.com');
+INSERT INTO ers_users (ers_username, ers_password, user_first_name, user_last_name, user_email, user_role_id) VALUES 
+('ManagerUser', '1234', 'MangerFirst', 'MangerLast', 'manger@email.com', 1),	
+('EmployeeUser', '1234', 'EmployeeFirst', 'EmployeeLast', 'employee@email.com', 2);
+	
 --DROP TABLE authors;
 
 
---Reimbursement Table
-INSERT INTO ers_reimbursement (reimb_amount, reimb_sumitted, reimb_resolved, reimb_description, reimb_reciept, reimb_author, reimb_resolver, reimb_status_id, reimb_type_id) VALUES 
-	(100, '2020-01-01'::DATE, '2020-01-01'::DATE, 'description', 'URL', 1, 1, 1, 1);
-
-	--('Abbys Article', 'Body Here', '2020-06-01'::DATE, 6);
-	
-	id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-	reimb_amount INTEGER,
-	reimb_sumitted DATE,
-	reimb_resolved DATE,
-	reimb_description VARCHAR(250),
-	reimb_reciept VARCHAR(300),
-	reimb_author INTEGER REFERENCES ers_users(id),
-	reimb_resolver INTEGER REFERENCES ers_users(id),
-	reimb_status_id INTEGER REFERENCES ers_reimbursement_status(id),
-	reimb_type_id INTEGER REFERENCES ers_reimbursement_type(id)
-	--------------------------------------------------------------------------------
-
-INSERT INTO ers_user_roles (user_role) VALUES ('manager Role');
-
-	
-	
-	
-	
-	
-	
-	
----------------------------------------------------------------------	
---Comments Table
-INSERT INTO commenting (comment_body, publish_date, authors_id, post_id) VALUES 
-	('Peters Comments Here', '2020-01-01'::DATE, 1, 1),
-	('Batmans Comments Here', '2020-02-01'::DATE, 2, 2), 
-	('Wades Comments Here', '2020-03-01'::DATE, 3, 3),
-	('Billys Comments Here', '2020-04-01'::DATE, 4, 4),
-	('Peppers Comments Here', '2020-05-01'::DATE, 5, 5),
-	('Abbys Comments Here', '2020-06-01'::DATE, 6, 6);
-	
 --Types Table
 INSERT INTO ers_reimbursement_type (reimb_type) VALUES 
-	('Lodging');
+	('LODGING'), ('TRAVEL'), ('FOOD'), ('OTHER');
 
 --Status Table
 INSERT INTO ers_reimbursement_status (reimb_status) VALUES 
-	('Denied');
+	('Approved'), ('Denied'), ('Pending');
+
+--User Roles Table
+INSERT INTO ers_user_roles(user_role) VALUES
+	('Manager'), ('Employee');
+
+
+--Reimbursement Table
+INSERT INTO ers_reimbursement (reimb_amount, reimb_sumit_date, reimb_resolved_date, reimb_description, 
+	reimb_reciept, reimb_author_id, reimb_resolver_id, reimb_status_id, reimb_type_id) VALUES 
+	(100, '2020-04-18'::DATE, '2020-04-26'::DATE, 'description', 'URL', 2, 1, 1, 1),
+	(200, '2019-04-18'::DATE, '2019-04-26'::DATE, 'description', 'URL', 2, 1, 2, 2),
+	(300, '2018-04-18'::DATE, '2018-04-26'::DATE, 'description', 'URL', 2, 1, 3, 3),
+	(400, '2017-04-18'::DATE, '2017-04-26'::DATE, 'description', 'URL', 2, 1, 3, 4);
+
+
+
+	
 
 
 

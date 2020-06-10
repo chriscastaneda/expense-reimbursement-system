@@ -3,12 +3,12 @@
 CREATE TABLE ers_reimbursement (
 	reimb_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 	reimb_amount INTEGER,
-	reimb_sumitted DATE,
-	reimb_resolved DATE,
+	reimb_sumit_date DATE,
+	reimb_resolved_date DATE,
 	reimb_description VARCHAR(250),
 	reimb_reciept VARCHAR(300),
-	reimb_author INTEGER REFERENCES ers_users(user_id),
-	reimb_resolver INTEGER REFERENCES ers_users(user_id),
+	reimb_author_id INTEGER REFERENCES ers_users(user_id),
+	reimb_resolver_id INTEGER REFERENCES ers_users(user_id),
 	reimb_status_id INTEGER REFERENCES ers_reimbursement_status(status_id),
 	reimb_type_id INTEGER REFERENCES ers_reimbursement_type(type_id)
 );
@@ -44,4 +44,6 @@ DROP TABLE ers_users;
 DROP TABLE ers_reimbursement_status;
 DROP TABLE ers_reimbursement_type;
 DROP TABLE ers_user_roles;
+--Drop all
+DROP TABLE ers_reimbursement, ers_users, ers_reimbursement_status, ers_reimbursement_type, ers_user_roles;
 

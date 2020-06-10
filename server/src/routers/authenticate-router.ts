@@ -52,15 +52,15 @@ authenticationRouter.post('/login', async (request, response, next) => {
             role: modelCredentials.userRole 
         }, accessTokenSecret, { expiresIn: '20s' });
 
-        const refreshToken = jwt.sign({ 
+        /*const refreshToken = jwt.sign({ 
             username: modelCredentials.username, 
-            role: modelCredentials.userRole }, refreshTokenSecret);
+            role: modelCredentials.userRole }, refreshTokenSecret);*/
 
         //Update refreshTokens[]
-        refreshTokens.push(refreshToken);
+       /* refreshTokens.push(refreshToken);*/
         response.json({ 
-            accessToken, 
-            refreshToken 
+            accessToken
+            /*refreshToken */
         });
 
     } else {
