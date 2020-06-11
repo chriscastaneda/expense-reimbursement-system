@@ -1,7 +1,8 @@
 import { Dashboard } from '../models/Dashboard';
 import { Pending } from '../models/MangerPending';
-import { Approval } from '../models/Approval';
+import { ApprovalPatch } from '../models/ApprovalPatch';
 import * as managerDao from '../daos/manager-dao';
+import { ApprovalRead } from '../models/ApprovalRead';
 /**Applicaiton Logic */
 
 /**Dashboard: Read All tickets */
@@ -12,27 +13,26 @@ export function getAllDashboards(): Promise<Dashboard[]> {
 
 /**Pending: Read All */
 export function getAllPendings(): Promise<Pending[]> {
+    console.log('Pending Service hit')
     return managerDao.getAllPendings();
 };
 
-// /**Dashboard: Retrieve by id */
-// export function getUserById(id: number): Promise<User> {
-//     return userDao.getUserById(id);
-// };
+/**Dashboard: Retrieve by id */
+export function getUserById(id: number): Promise<Dashboard> {
+    return managerDao.getStatusById(id);
+};
 
 /**Approve Reimbursemnet: Update */
-export function patchApproval(properties: any): Promise<Approval> {
+export function patchApproval(properties: any): Promise<ApprovalPatch> {
     
-    const sumitDate = properties.sumitDate && new Date(properties.sumitDate);
-    const resolvedDate = properties.resolvedDate && new Date(properties.resolvedDate);
+    // const sumitDate = properties.sumitDate && new Date(properties.sumitDate);
+    // const resolvedDate = properties.resolvedDate && new Date(properties.resolvedDate);
 
-    const approval = new Approval(
+    const approval = new ApprovalPatch(
         properties.reimbId,
         properties.amount,
-        // new Date(properties.sumitDate),
-        // new Date(properties.resolvedDate),
-        sumitDate,
-        resolvedDate,
+        properties.sumitDate,
+        properties.resolvedDate,
         properties.description,
         properties.reciept,
         properties.authorId,
@@ -49,8 +49,25 @@ export function patchApproval(properties: any): Promise<Approval> {
 };
 
 
+/**Approve Reimbursemnet: Read All updated */
+export function getApprovalById(): Promise<ApprovalRead[]> {
+    console.log('Pending Service hit')
+    return managerDao.getApprovalById();
+};
 
 
+
+
+
+
+
+
+
+/**Approve Reimbursemnet: Read updated by id 
+export function getApprovalById(id: number): Promise<ApprovalRead> {
+    return managerDao.getApprovalById(id);
+};
+*/
 
 /*
 //Read by id 

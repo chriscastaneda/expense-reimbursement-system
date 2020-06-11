@@ -51,6 +51,7 @@ SELECT
 
 --Employee Pending
 SELECT  
+	ers_reimbursement.reimb_id,
 	ers_reimbursement.reimb_sumit_date, 
 	
 	reimb_type
@@ -116,6 +117,7 @@ SELECT
 
 --Manager Pending
 SELECT  
+	ers_reimbursement.reimb_id,
 	ers_reimbursement.reimb_sumit_date, 
 	
 	ers_users.user_first_name, ers_users.user_last_name,
@@ -126,23 +128,25 @@ SELECT
 	LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id
 	WHERE ers_reimbursement.reimb_status_id = 3;
 
---Manger Review Request
+--Manger Review Request: Read update by id
 SELECT  
 	ers_reimbursement.reimb_id,
 	ers_reimbursement.reimb_amount, 
-	ers_reimbursement.reimb_sumit_date, 
+	ers_reimbursement.reimb_sumit_date,
+	ers_reimbursement.resolved_date,
 	ers_reimbursement.reimb_description, 
 	ers_reimbursement.reimb_reciept,
 	
 	ers_users.user_first_name, ers_users.user_last_name,
 	
+	
 	reimb_status,
 	reimb_type
 	FROM ers_reimbursement
 	LEFT JOIN ers_users ON ers_reimbursement.reimb_author_id = ers_users.user_id
-		LEFT JOIN ers_reimbursement_status ON ers_reimbursement.reimb_status_id = ers_reimbursement_status.status_id
+	LEFT JOIN ers_reimbursement_status ON ers_reimbursement.reimb_status_id = ers_reimbursement_status.status_id
 	LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id
-	WHERE ers_reimbursement.reimb_status_id = 3;
+	WHERE ers_reimbursement.reimb_status_id = 3 ORDER BY ers_reimbursement.reimb_sumit_date;
 	
 
 

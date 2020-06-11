@@ -4,25 +4,29 @@ import LoginComponent from './components/Login/login.componet';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { AccountComponent } from './components/employee/accounts.component';
 import NavbarComponent from './components/employee/navbar.component';
-import { HomeComponent } from './components/employee/home.component';
-import { LoanComponent } from './components/employee/loan.component';
+import { EmpolyeeDashboardComponent } from './components/employee/employee.dashboard.component';
+import { EmployeeReimburseComponent } from './components/employee/employee.reimburse.component';
+import { ManagerDashboardComponent } from './components/manager/manager.dashboard.component';
 
 function App() {
   return (
     <div className="App">
       <HashRouter>
-        {/* <LoginComponent /> */}
         <NavbarComponent />
+        <LoginComponent />
         <main>
           <Switch>
-            <Route path="/home">
-              <HomeComponent />
+            <Route path="/employee">
+              <EmpolyeeDashboardComponent />
             </Route>
-            <Route path="/accounts">
+            <Route path="/reimburse">
+              <EmployeeReimburseComponent />
+              </Route>
+              <Route path="/manager">
+              <ManagerDashboardComponent />
+              </Route>
+            <Route path="/template">
               <AccountComponent />
-            </Route>
-            <Route path="/loans">
-              <LoanComponent />
             </Route>
           </Switch>
         </main>

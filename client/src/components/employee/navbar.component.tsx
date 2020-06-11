@@ -25,13 +25,16 @@ const NavbarComponent: React.FC<RouteComponentProps> = (props) => {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item active">
-                        <Link to="/home">Home {renderOnCurrentPath('/home') }</Link>
+                        <Link to="/employee">Employee {renderOnCurrentPath('/employee') }</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/accounts">Accounts {renderOnCurrentPath('/accounts') }</Link>
+                        <Link to="/reimburse">Reimburse {renderOnCurrentPath('/reimburse') }</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/loans">Loans {renderOnCurrentPath('/loans') }</Link>
+                        <Link to="/manager">Manager {renderOnCurrentPath('/manager') }</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/template">Template {renderOnCurrentPath('/template') }</Link>
                     </li>
                 </ul>
             </div>

@@ -24,6 +24,9 @@ INSERT INTO ers_user_roles(user_role) VALUES
 --Reimbursement Table
 INSERT INTO ers_reimbursement (reimb_amount, reimb_sumit_date, reimb_resolved_date, reimb_description, 
 	reimb_reciept, reimb_author_id, reimb_resolver_id, reimb_status_id, reimb_type_id) VALUES 
+	
+	(400, '2017-04-18'::DATE, '2017-04-26'::DATE, 'description', 'URL', 2, 1, 3, 4);
+
 	(100, '2020-04-18'::DATE, '2020-04-26'::DATE, 'description', 'URL', 2, 1, 1, 1),
 	(200, '2019-04-18'::DATE, '2019-04-26'::DATE, 'description', 'URL', 2, 1, 2, 2),
 	(300, '2018-04-18'::DATE, '2018-04-26'::DATE, 'description', 'URL', 2, 1, 3, 3),

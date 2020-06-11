@@ -2,8 +2,9 @@ import express from 'express';
 import * as managerService from '../services/manager-service';
 import { Dashboard } from '../models/Dashboard';
 import { Pending } from '../models/MangerPending';
-import { Approval } from '../models/Approval';
+import { ApprovalPatch } from '../models/ApprovalPatch';
 import * as authenticateJWT from './authenticate-router'; //!NEW LOGIN CODE
+import { ApprovalRead } from '../models/ApprovalRead';
 /**CRUD logic */
 
 export const managerRouter = express.Router();
@@ -22,36 +23,39 @@ managerRouter.get('/dashboard',  async(request, response, next)=> { //!NEW LOGIN
     next();
 });
 
-// /**Dashboard: Retrieve by id */
-// userRouter.get('/:id', async(request, response, next)=> {
-//     const id = parseInt(request.params.id);
-//     let user: User;
+/**Dashboard: Retrieve by id */
+managerRouter.get('/filter/:id', async(request, response, next)=> {
+    const id = parseInt(request.params.id);
+    let user: Dashboard;
 
-//     try {
-//         user = await userService.getUserById(id);
-//     } catch (err) {
-//         response.sendStatus(500);
-//         return;
-//     }
+    try {
+        user = await managerService.getUserById(id);
+    } catch (err) {
+        response.sendStatus(500);
+        return;
+    }
 
-//     if (!user) {
-//         response.sendStatus(404);
-//     } else {
-//         response.json(user);
-//     }
-//     next();
-//  });
+    if (!user) {
+        // console.log(user)
+        response.sendStatus(404);
+    } else {
+        response.json(user);
+    }
+    next();
+ });
 
 /**Pending: Read all*/
 managerRouter.get('/pending',  async(request, response, next)=> { //!NEW LOGIN CODE
     let pendings: Pending[];
     
     try{
+        // console.log('Pending Router');
         pendings = await managerService.getAllPendings();
         response.json(pendings);
     }catch(err){
+        response.statusMessage;
+        // console.log(err, 'Pending Router');
         response.sendStatus(500);
-        console.log(err);
         return;
     }
     next();
@@ -59,9 +63,9 @@ managerRouter.get('/pending',  async(request, response, next)=> { //!NEW LOGIN C
 
 
 /**Approve Reimbursemnet: Update */
-managerRouter.patch('/requests', async(request, response, next)=> {
+managerRouter.patch('/approvals', async(request, response, next)=> {
     const approval = request.body;
-    let updatedApproval: Approval;
+    let updatedApproval: ApprovalPatch;
 
     try {
         updatedApproval = await managerService.patchApproval(approval);
@@ -80,6 +84,48 @@ managerRouter.patch('/requests', async(request, response, next)=> {
     next();
  });
  
+
+/**Approve Reimbursemnet: Read All */
+managerRouter.get('/requests',  async(request, response, next)=> { //!NEW LOGIN CODE
+    let approval: ApprovalRead[];
+    
+    try{
+        // console.log('Pending Router');
+        approval = await managerService.getApprovalById();
+        response.json(approval);
+    }catch(err){
+        response.statusMessage;
+        // console.log(err, 'Pending Router');
+        response.sendStatus(500);
+        return;
+    }
+    next();
+});
+
+
+
+ /**Approve Reimbursemnet: Read updated by id 
+managerRouter.get('/requesting/:id', async(request, response, next)=> {
+    const id = parseInt(request.params.id);
+    let approval: ApprovalRead;
+
+    try {
+        approval = await managerService.getApprovalById(id);
+        console.log(approval);
+    } catch (err) {
+        console.log(err);
+        response.sendStatus(500);
+        return;
+    }
+
+    if (!approval) {
+        // console.log(user)
+        response.sendStatus(404);
+    } else {
+        response.json(approval);
+    }
+    next();
+ });*/
 
 
 /*

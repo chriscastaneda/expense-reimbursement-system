@@ -28,6 +28,7 @@ export async function getAllDashboards(): Promise<Dashboard[]> {
 /**Pending: Read All */
 export async function getAllPendings(): Promise<Pending[]> {
     const sql = 'SELECT  \
+                ers_reimbursement.reimb_id, \
                 ers_reimbursement.reimb_sumit_date, \
                 \
                 reimb_type \

@@ -1,7 +1,8 @@
 import { dbConnection } from './db';
 import { Dashboard, DashboardRow } from '../models/Dashboard';
 import { Pending, PendingRow } from '../models/MangerPending';
-import { Approval, ApprovalRow } from '../models/Approval';
+import { ApprovalPatch, ApprovalPatchRow } from '../models/ApprovalPatch';
+import { ApprovalRead, ApprovalReadRow } from '../models/ApprovalRead';
 /**Query logic */
 
 /**Dashboard: Read All tickets */
@@ -25,36 +26,39 @@ export async function getAllDashboards(): Promise<Dashboard[]> {
     return result.rows.map(Dashboard.from);
 };
 
-// /**Dashboard: Retrieve by id */
-// export async function getStatusById(id: number): Promise<Dashboard> {
-//     const sql = 'SELECT \
-//                 ers_reimbursement.reimb_id, \
-//                 ers_reimbursement.reimb_amount, \
-//                 ers_reimbursement.reimb_sumit_date, \
-//                 ers_reimbursement.reimb_resolved_date, \
-//                 ers_reimbursement.reimb_description, \
-//                 \
-//                 ers_users.user_first_name, ers_users.user_last_name, \
-//                  \
-//                 reimb_status, \
-//                 \
-//                 reimb_type \
-//                  \
-//                 FROM ers_reimbursement \
-//                 LEFT JOIN ers_users ON ers_reimbursement.reimb_author_id = ers_users.user_id \
-//                 LEFT JOIN ers_reimbursement_status ON ers_reimbursement.reimb_status_id = ers_reimbursement_status.status_id \
-//                 LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id \
-//                 \
-//                 WHERE ers_reimbursement_status.status_id = $1';
+/**Dashboard: Retrieve by id */
+export async function getStatusById(id: number): Promise<Dashboard> {
+    const sql = `SELECT \
+                ers_reimbursement.reimb_id, \
+                ers_reimbursement.reimb_amount, \
+                ers_reimbursement.reimb_sumit_date, \
+                ers_reimbursement.reimb_resolved_date, \
+                ers_reimbursement.reimb_description, \
+                \
+                ers_users.user_first_name, ers_users.user_last_name, \
+                 \
+                reimb_status, \
+                \
+                reimb_type \
+                 \
+                FROM ers_reimbursement \
+                LEFT JOIN ers_users ON ers_reimbursement.reimb_author_id = ers_users.user_id \
+                LEFT JOIN ers_reimbursement_status ON ers_reimbursement.reimb_status_id = ers_reimbursement_status.status_id \
+                LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id \
+                \
+                WHERE ers_reimbursement_status.status_id = $1`;  
     
-//     const result = await dbConnection.query<Dashboard>(sql, [id]);
-//     return result.rows.map(Dashboard.from)[0];
-// };
+                // ORDER BY id
+
+    const result = await dbConnection.query<DashboardRow>(sql, [id]);
+    return result.rows.map(Dashboard.from)[0];
+};
 
 /**Pending: Read All */
 export async function getAllPendings(): Promise<Pending[]> {
-    const sql = 'SELECT  \
-                ers_reimbursement.reimb_sumit_date,  \
+    const sql = `SELECT  \
+                ers_reimbursement.reimb_id, \
+                ers_reimbursement.reimb_sumit_date, \
                 \
                 ers_users.user_first_name, ers_users.user_last_name, \
                 \
@@ -62,14 +66,14 @@ export async function getAllPendings(): Promise<Pending[]> {
                 FROM ers_reimbursement \
                 LEFT JOIN ers_users ON ers_reimbursement.reimb_author_id = ers_users.user_id \
                 LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id \
-                WHERE ers_reimbursement.reimb_status_id = 3';
+                WHERE ers_reimbursement.reimb_status_id = 3`;
 
     const result = await dbConnection.query<PendingRow>(sql, []);
     return result.rows.map(Pending.from);
 };
 
 /**Approve Reimbursemnet: Update */
-export async function patchApproval(approval: Approval): Promise<Approval> {
+export async function patchApproval(approval: ApprovalPatch): Promise<ApprovalPatch> {
         const sql = `UPDATE ers_reimbursement SET \
                     reimb_amount = COALESCE($2, reimb_amount), \
                     reimb_sumit_date = COALESCE($3, reimb_sumit_date), \
@@ -82,11 +86,11 @@ export async function patchApproval(approval: Approval): Promise<Approval> {
                     reimb_type_id = COALESCE($10, reimb_author_id) \
                     WHERE reimb_id = $1 RETURNING *`;
     
-        const result = await dbConnection.query<ApprovalRow>(sql, [
+        const result = await dbConnection.query<ApprovalPatchRow>(sql, [
             approval.reimbId,
             approval.amount,
-            approval.sumitDate.toISOString(),
-            approval.resolvedDate.toISOString(),
+            approval.sumitDate,
+            approval.resolvedDate,
             approval.description,
             approval.reciept,
             approval.authorId,
@@ -95,9 +99,34 @@ export async function patchApproval(approval: Approval): Promise<Approval> {
             approval.type
         ]);
     
-        return result.rows.map(Approval.from)[0];
+        return result.rows.map(ApprovalPatch.from)[0];
 };
 
+
+
+/**Approve Reimbursemnet: Retrieve All Updated */
+export async function getApprovalById(): Promise<ApprovalRead[]> {
+    const sql = `SELECT  \
+                ers_reimbursement.reimb_id, \
+                ers_reimbursement.reimb_amount, \
+                ers_reimbursement.reimb_sumit_date, \
+                ers_reimbursement.reimb_resolved_date, \
+                ers_reimbursement.reimb_description, \
+                ers_reimbursement.reimb_reciept, \
+                \
+                ers_users.user_first_name, ers_users.user_last_name, \
+                \
+                reimb_status, \
+                reimb_type \
+                FROM ers_reimbursement \
+                LEFT JOIN ers_users ON ers_reimbursement.reimb_author_id = ers_users.user_id \
+                LEFT JOIN ers_reimbursement_status ON ers_reimbursement.reimb_status_id = ers_reimbursement_status.status_id \
+                LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id \
+                WHERE ers_reimbursement.reimb_status_id = 3 ORDER BY ers_reimbursement.reimb_sumit_date`;
+
+    const result = await dbConnection.query<ApprovalReadRow>(sql, []);
+    return result.rows.map(ApprovalRead.from);
+};
 
 
 

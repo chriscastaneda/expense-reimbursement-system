@@ -23,13 +23,13 @@ export function saveReimbursement(reimburse: any): Promise<Reimburse> {
     const newReimburse = new Reimburse(
         undefined,
         reimburse.amount,
-        new Date(reimburse.sumitDate),
-        new Date(reimburse.resolvedDate),
+        new Date(reimburse.sumitDate), //current date
+        new Date(reimburse.resolvedDate), //undefined
         reimburse.description,
-        reimburse.reciept,
-        reimburse.authorId,
-        reimburse.resolverId,
-        reimburse.statusId,
+        reimburse.reciept, 
+        reimburse.authorId, //server 2
+        reimburse.resolverId, //undefined
+        reimburse.statusId, //hardcode 3
         reimburse.type
     );
 
@@ -40,7 +40,7 @@ export function saveReimbursement(reimburse: any): Promise<Reimburse> {
 
         return employeeDao.saveReimbursement(newReimburse);
     } else {
-        console.log('Reimburse service invalid');
+        console.log(newReimburse);
         return new Promise((resolve, reject) => reject(422));
     };
 };

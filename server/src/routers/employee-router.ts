@@ -45,7 +45,7 @@ employeeRouter.post('/reimburse', async(request, response, next)=> {
     let newReimburse: Reimburse;
 
     try {
-        newReimburse = await employeeService.saveReimbursement(console.log(reimburse));
+        newReimburse = await employeeService.saveReimbursement(reimburse);
         response.status(201);
         response.json(newReimburse);
     } catch (err) {
