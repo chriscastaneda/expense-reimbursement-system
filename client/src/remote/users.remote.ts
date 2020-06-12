@@ -1,4 +1,5 @@
-import { internalAxios } from './internal-axios';
+import Axios from 'axios';
+import { internalAxios, authAxios } from './internal-axios';
 import { Authenticate } from '../models/Authenticate';
 import { Dashboard } from '../models/Dashboard';
 import { Reimburse } from '../models/Reimburse';
@@ -6,6 +7,7 @@ import { EmployeePending } from '../models/EmployeePending';
 import { ManagerPending } from '../models/MangerPending';
 import { ApprovalPatch } from '../models/ApprovalPatch';
 import { ApprovalRead } from '../models/ApprovalRead';
+import { User } from '../models/User';
 
 
 // Employee: Dashboard
@@ -63,7 +65,7 @@ export const getAllManagerPending = async () => {
 // Manager: Approval
 export const updateAllManagerRequests = async (approval: ApprovalPatch) => {
     const response = await internalAxios.patch('/managers/approvals', approval);
-    return true;
+    // return true;
 }
 
 export const getAllManagerRequests = async () => {
@@ -94,8 +96,17 @@ export const createUser = async (reimburse: Reimburse) => {
 /**************************************************** */
 
 
-// Authenication
+// Authenication:request token
 export const createToken = async (login: Authenticate) => {
     const response = await internalAxios.post('/authentication/login', login);
     return response; //console.log(response);
+}
+
+
+// Authenication: get user data with token
+export const getAllUserTable = async () => {
+    const response = await authAxios.get<User[]>('/users');
+    return response.data.map(user => {
+        return user;
+    });
 }

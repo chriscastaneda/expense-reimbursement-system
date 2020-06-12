@@ -22,6 +22,8 @@ jest.config.js		/*add manually*/
 
 npm install cors jsonwebtoken bcryptjs
 npm install --save-dev @types/bcryptjs @types/body-parser @types/cors @types/jsonwebtoken
+npm install --save react-aws-s3  @types/react-aws-s3 //react-s3 bucket
+
 ------------------------
 Setup react:
 npm install -g react app //globlal Install
@@ -30,3 +32,13 @@ install yarn //maybe if getting errors or package.json missing dependencies
 create-react-app NameHere --template="typescript"  //create app w/typescript
 npm start //launch app
 ---------------------
+Dummbie User
+RevatureAWS
+
+Access key ID
+AKIAX2GVIUE5BBTMGAKL
+
+Secret access key
+bYBvFz7gGr5Dl01eCCzDXqlaQpbbTQIA0QdftlcZ 
+
+arn:aws:iam::537318170938:user/RevatureAWS

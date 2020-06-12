@@ -85,17 +85,14 @@ managerRouter.patch('/approvals', async(request, response, next)=> {
  });
  
 
-/**Approve Reimbursemnet: Read All */
+/**Approve Reimbursemnet: Read All by id of 3(Pending)*/
 managerRouter.get('/requests',  async(request, response, next)=> { //!NEW LOGIN CODE
     let approval: ApprovalRead[];
     
     try{
-        // console.log('Pending Router');
         approval = await managerService.getApprovalById();
         response.json(approval);
     }catch(err){
-        response.statusMessage;
-        // console.log(err, 'Pending Router');
         response.sendStatus(500);
         return;
     }

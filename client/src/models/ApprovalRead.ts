@@ -2,12 +2,12 @@
 export interface ApprovalRead {
     reimbId: number;
     amount: number;
-    sumitDate: Date;
-    resolvedDate: Date;    
+    sumitDate: Date | string;
+    resolvedDate: Date | string;    
     description: string;
     reciept: string;
     firstName: string;
     lastName: string;
-    statusId: number;
-    type: number;
+    reimbStatus: string;
+    reimbType: string;
 };

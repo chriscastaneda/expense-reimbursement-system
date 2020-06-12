@@ -1,23 +1,27 @@
 /**Convert Postres Schema into Javascript Object */
 export class Authenticate {
-    username: string;
+    userName: string;
     userPassword: string;
-    userRole: string;
+    userID: number;
+    roleID: number;
+
 
     /**Create new JS instance object from database schema */
-    static from(obj: AuthenticateRow): Authenticate {
+    static from(object: AuthenticateRow): Authenticate {
         const authenticate = new Authenticate(
-            obj.ers_username,
-            obj.ers_password,
-            obj.user_roles_id
+            object.ers_username,
+            object.ers_password,
+            object.user_id,
+            object.user_role_id            
         );
         return authenticate;
     }
     /**Type constructor */
-    constructor( username: string, userPassword: string, userRole: string) {
-        this.username = username;
+    constructor( userName: string, userPassword: string, userID: number, roleID: number) {
+        this.userName = userName;
         this.userPassword = userPassword;
-        this.userRole = userRole;
+        this.userID = userID;
+        this.roleID = roleID;
     }
 }
 
@@ -25,5 +29,6 @@ export class Authenticate {
 export interface AuthenticateRow {
     ers_username: string;
     ers_password: string;
-    user_roles_id: string;
+    user_id: number;
+    user_role_id: number;
 }

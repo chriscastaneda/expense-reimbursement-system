@@ -29,8 +29,16 @@ SELECT
 
    
  ----------------------------------------
- ---Login Page
-
+ --Verify Username
+ SELECT EXISTS(
+       SELECT ers_username FROM ers_users
+       WHERE ers_username = 'EmployeeUser'); 
+   
+   ---Login Page
+SELECT ers_username, ers_password, user_id, user_role_id
+       FROM ers_users 
+       LEFT JOIN ers_user_roles ON user_id = user_roles_id 
+       WHERE ers_users.ers_username = 'EmployeeUser'; 
 
 ---Employee Dashboard
 SELECT 
@@ -133,7 +141,7 @@ SELECT
 	ers_reimbursement.reimb_id,
 	ers_reimbursement.reimb_amount, 
 	ers_reimbursement.reimb_sumit_date,
-	ers_reimbursement.resolved_date,
+	ers_reimbursement.reimb_resolved_date,
 	ers_reimbursement.reimb_description, 
 	ers_reimbursement.reimb_reciept,
 	
@@ -143,7 +151,7 @@ SELECT
 	reimb_status,
 	reimb_type
 	FROM ers_reimbursement
-	LEFT JOIN ers_users ON ers_reimbursement.reimb_author_id = ers_users.user_id
+	LEFT JOIN ers_users ON ers_reimbursement.reimb_author_id = ers_users.user_id 
 	LEFT JOIN ers_reimbursement_status ON ers_reimbursement.reimb_status_id = ers_reimbursement_status.status_id
 	LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id
 	WHERE ers_reimbursement.reimb_status_id = 3 ORDER BY ers_reimbursement.reimb_sumit_date;

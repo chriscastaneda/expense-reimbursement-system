@@ -22,7 +22,7 @@ export const AccountComponent: React.FC = () => {
     const [inputType, setInputType] = useState(0);
 
 
-    const [modalVisible, setModalVisible] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false); /**MODAL HERE */
    
     useEffect(() => {
         loadPeople();   
@@ -73,7 +73,7 @@ export const AccountComponent: React.FC = () => {
                 <h2 id="accounts-header" className="dark">Accounts Section 
                     <button 
                         className="btn btn-success"
-                        onClick={() => setModalVisible(true)}
+                        onClick={() => setModalVisible(true)} /*OPEN HERE*/
                         >Add Person</button>
                 </h2>
             </header>

@@ -34,6 +34,9 @@ const NavbarComponent: React.FC<RouteComponentProps> = (props) => {
                         <Link to="/manager">Manager {renderOnCurrentPath('/manager') }</Link>
                     </li>
                     <li className="nav-item">
+                        <Link to="/review">Review {renderOnCurrentPath('/review') }</Link>
+                    </li>
+                    <li className="nav-item">
                         <Link to="/template">Template {renderOnCurrentPath('/template') }</Link>
                     </li>
                 </ul>

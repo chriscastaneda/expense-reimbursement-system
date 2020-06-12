@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './accounts.component.css';
 import * as userRemote from '../../remote/users.remote';
 
+
 export const EmployeeReimburseComponent: React.FC = () => {
     // const [inputReimbID, setInputeimbID] = useState(0);
     const [inputAmount, setInputAmount] = useState(0);
@@ -54,6 +55,11 @@ export const EmployeeReimburseComponent: React.FC = () => {
         });        
     };
 
+    // const upload = (e: any) => {  /**uploadFile */
+    //     console.log(e.target.files[0]);
+    //     S3.uploadFile(e.target.files[0], S3config)
+    // };
+
     return (
         <div>
             <h2>Add Reimbursement</h2>
@@ -72,6 +78,11 @@ export const EmployeeReimburseComponent: React.FC = () => {
             
             <button onClick={() => addUser()}>Submit</button>
             </form>
+
+            {/* <br/>
+
+            <h3> aws s3 upload</h3>
+            <input type="file" onChange={(e) => upload(e)}/> */}
         </div>
     );
 }

@@ -8,8 +8,8 @@ export class ApprovalRead {
     reciept: string;
     firstName: string;
     lastName: string;
-    statusId: number;
-    type: number;
+    reimbStatus: string;
+    reimbType: string;
 
     /**Create new JS instance object from database schema */
     static from(object: ApprovalReadRow): ApprovalRead {
@@ -22,15 +22,15 @@ export class ApprovalRead {
             object.reimb_reciept,
             object.user_first_name,
             object.user_last_name,
-            object.reimb_status_id,
-            object.reimb_type_id
+            object.reimb_status,
+            object.reimb_type
         );
         return approvalRead;
     };
     
     /**Approval constructor */
     constructor(reimbId: number, amount: number, sumitDate: Date, resolvedDate: Date, description: string, 
-        reciept: string, firstName: string, lastName: string, statusId: number, type: number){
+        reciept: string, firstName: string, lastName: string, reimbStatus: string, reimbType: string){
 
         this.reimbId = reimbId;
         this.amount = amount;
@@ -40,8 +40,8 @@ export class ApprovalRead {
         this.reciept = reciept;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.statusId = statusId;
-        this.type = type;
+        this.reimbStatus = reimbStatus;
+        this.reimbType = reimbType;
     }
 }
 
@@ -55,6 +55,6 @@ export interface ApprovalReadRow {
     reimb_reciept: string;
     user_first_name: string;
     user_last_name: string;
-    reimb_status_id: number;
-    reimb_type_id: number;
+    reimb_status: string;
+    reimb_type: string;
 };

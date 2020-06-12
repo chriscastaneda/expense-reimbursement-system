@@ -4,15 +4,17 @@ import * as employeeDao from '../daos/authenticate-dao';
 
 export function VerifyLoginCredential(properties: any): Promise<Authenticate> {
     const authenticate = new Authenticate(
-        properties.username,
+        properties.userName,
         properties.userPassword,
-        properties.userRole
+        properties.userID,
+        properties.roleID
     );
-    
-    if (properties.username && properties.userPassword) {
+    console.log('Service', authenticate)
+    if (properties.userName && properties.userPassword) {
 
         return employeeDao.VerifyLoginCredential(authenticate);
     } else {
+        console.log('service rejected')
         return new Promise((resolve, reject) => reject(422));
     };
 };

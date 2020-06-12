@@ -1,6 +1,7 @@
 /**Convert Postres Schema into Javascript Object */
 export interface Authenticate {
-    username: string;
+    userName: string;
     userPassword: string;
-    userRole?: string;
+    userID?: number;
+    roleID?: number;
 };

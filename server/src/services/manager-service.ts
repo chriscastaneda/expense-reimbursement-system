@@ -13,7 +13,6 @@ export function getAllDashboards(): Promise<Dashboard[]> {
 
 /**Pending: Read All */
 export function getAllPendings(): Promise<Pending[]> {
-    console.log('Pending Service hit')
     return managerDao.getAllPendings();
 };
 
@@ -51,7 +50,6 @@ export function patchApproval(properties: any): Promise<ApprovalPatch> {
 
 /**Approve Reimbursemnet: Read All updated */
 export function getApprovalById(): Promise<ApprovalRead[]> {
-    console.log('Pending Service hit')
     return managerDao.getApprovalById();
 };
 
