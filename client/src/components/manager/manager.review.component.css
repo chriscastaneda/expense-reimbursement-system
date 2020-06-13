@@ -1,0 +1,58 @@
+#accounts-header {
+    background-color: var(--dark);
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+#accounts-header > button {
+    font-size: 0.5rem;
+}
+
+#checkbox{
+    text-align: center;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    background-color: rgb(240, 240, 240) !important;
+}
+
+#button-color1{
+    background-color: #76ffa4 !important;
+}
+#button-color2{
+    background-color: #ff7b76 !important;
+}
+
+#img-size{
+    max-width: 500px;
+  max-height: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 50px;
+  min-height: 50px;
+}
+
+  /* Table Font Align */
+  .id-padding, #id-padding{
+      text-align: center;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+  }
+
+ #table-padding{
+      margin-top: 30px;
+      text-align: left;
+      margin-left: 50px;
+      padding-left: 15px;
+      padding-bottom: 10px;
+  }
+
+
+/* .status{
+    color: #fecc27;
+} */
+
+#highlight > *{
+    color: #258cea !important;
+}

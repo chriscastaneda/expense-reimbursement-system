@@ -26,7 +26,17 @@ app.use((request, response, next)=> {
 });
 
 /**Middeware */
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+app.use(bodyParser.json({
+    limit: '50mb'
+  }));
+app.use(bodyParser.urlencoded({
+    limit: '50mb',
+    parameterLimit: 100000,
+    extended: true
+  }));
+
+
 
 /**Routers */
 app.use('/employees', employeeRouter);

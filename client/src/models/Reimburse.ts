@@ -5,7 +5,7 @@ export interface Reimburse {
     sumitDate: Date | string;
     resolvedDate: Date | string;
     description: string;
-    reciept: string;
+    reciept: File;
     authorId: number;
     resolverId:number;
     statusId: number;

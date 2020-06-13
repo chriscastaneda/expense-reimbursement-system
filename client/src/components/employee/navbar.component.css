@@ -1,3 +1,11 @@
 a:visited, a:link {
     color: inherit;
 }
+
+#navbar{
+    background-color: #3f67a3;
+}
+
+.font-color{
+    color: white !important;
+}

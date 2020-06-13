@@ -9,7 +9,7 @@ import * as authenticateJWT from './authenticate-router'; //!NEW LOGIN CODE
 export const employeeRouter = express.Router();
 
 /**Dashboard: Read All tickets */  //authenticateJWT.authenticateJWT, async
-employeeRouter.get('/dashboard',  async(request, response, next)=> { //!NEW LOGIN CODE
+employeeRouter.get('/dashboard',  async(request, response, next)=> { 
     let dashboards: Dashboard[];
     
     try{
@@ -24,7 +24,7 @@ employeeRouter.get('/dashboard',  async(request, response, next)=> { //!NEW LOGI
 
 
 /**Pending: Read all*/
-employeeRouter.get('/pending',  async(request, response, next)=> { //!NEW LOGIN CODE
+employeeRouter.get('/pending',  async(request, response, next)=> { 
     let pendings: Pending[];
     
     try{
@@ -39,6 +39,42 @@ employeeRouter.get('/pending',  async(request, response, next)=> { //!NEW LOGIN 
 
 
 /**Add Reimbursemnet: Create */
+employeeRouter.post('/reimburse', async(request, response, next)=> {
+    const reimburse = request.body;
+    console.log('IMAGE FILE', reimburse);
+
+    let newReimburse: Reimburse;
+
+    try {
+        newReimburse = await employeeService.saveReimbursement(reimburse);
+        response.status(201);
+        response.json(newReimburse);
+    } catch (err) {
+        response.sendStatus(500);
+        console.log('REimburse Router', err);
+        return;
+    }
+    next();
+ });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+/**Add Reimbursemnet: Create Copy
 employeeRouter.post('/reimburse', async(request, response, next)=> {
     const reimburse = request.body;
 
@@ -57,7 +93,14 @@ employeeRouter.post('/reimburse', async(request, response, next)=> {
  });
 
 
-/*
+
+
+
+
+
+
+
+
 
 //Read by id *
 userRouter.get('/:id', async(request, response, next)=> {

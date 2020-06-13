@@ -18,7 +18,7 @@ function App() {
       <HashRouter>
         <NavbarComponent />
         {/* <p>User Role: { isManager ? 'Manager' : 'Employee' }</p> */}
-        <LoginComponent />
+        {/* <LoginComponent /> */}
         <main>
         {/* <Suspense fallback={<div>Loading...</div>}> */}
           <Switch>

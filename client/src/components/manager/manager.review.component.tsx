@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../manager/manager.review.component.css';
 import '../employee/accounts.component.css';
 import * as userRemote from '../../remote/users.remote';
 import { ApprovalRead } from '../../models/ApprovalRead';
@@ -40,7 +41,7 @@ export const ManagerReviewComponent: React.FC = () => {
         await userRemote.updateAllManagerRequests(payload);  /**SEND REQUEST HERE */
         setInputStatusID(0); //clear fields
 
-        setModalVisible(true)
+        setModalVisible(true) /**OPEN MODAL HERE */
         
 
         loadPeople(); /**GET REQUEST HERE */
@@ -55,6 +56,189 @@ export const ManagerReviewComponent: React.FC = () => {
     
     return (
         <div>
+
+<p id="table-padding">Pending Request</p>
+
+
+<table className="ui compact celled definition table">
+  <thead className="full-width">
+    <tr>
+      
+      <th id="id-padding">#</th>
+      <th>Amount</th>
+      <th>Submission</th>
+      <th>Resolved</th>
+      <th>Description</th>
+      <th>Reciept</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Status</th>
+      <th>type</th>
+      <th id="checkbox"></th>
+      <th id="checkbox"></th>
+    </tr>
+  </thead>
+
+  
+  <tbody>
+  
+    
+    
+    
+    
+   
+  
+
+     
+      {approvalRead.map(u => {
+                        return (
+                            
+                        <tr key={u.reimbId}>
+                             
+                            <th className="id-padding" scope="row">{u.reimbId}</th>
+                            <td>{u.amount}</td>
+                            <td>{typeof u.sumitDate == 'string' ? u.sumitDate : u.sumitDate.toDateString()}</td>
+                            <td>{typeof u.resolvedDate == 'string' ? u.resolvedDate : u.resolvedDate.toDateString()}</td>
+                            <td>{u.description}</td>
+                            <img id="img-size" src={u.reciept}></img>
+                            <td>{u.firstName}</td>
+                            <td>{u.lastName}</td>
+                            <td>{u.reimbStatus}</td>
+                            <td>{u.reimbType}</td>
+
+                            <td id="id-padding" className="collapsing">
+        <div className="ui fitted checkbox ">
+          <input type="checkbox"/> <label></label>
+        </div>
+      </td>
+
+      <td id="id-padding" className="collapsing">
+        <div className="ui fitted checkbox ">
+          <input type="checkbox"/> <label></label>
+        </div>
+      </td>
+                            
+                        </tr>)
+                    })}
+    
+    
+  </tbody>
+  <tfoot className="full-width">
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      
+      <th >
+        <div id="button-color1" className="ui small  button">
+          Approve
+        </div>
+      </th>
+      <th >
+        <div id="button-color2" className="ui small  button">
+          Approve
+        </div>
+      </th>
+
+    </tr>
+  </tfoot>
+</table>
+
+
+
+
+
+{/* <table className="ui celled table">
+  <thead className="ui inverted grey table">
+    <tr>
+      <th>#</th>
+      <th>Amount</th>
+      <th>Submission</th>
+      <th>Resolved</th>
+      <th>Description</th>
+      <th>Reciept</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Status</th>
+      <th>type</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead> */}
+
+{/*
+  <tbody>
+     <tr>
+      <td>Jill</td>
+      <td>Denied</td>
+      <td className="selectable">
+        <a href="#">Edit</a>
+      </td>
+    </tr>
+    <tr className="warning">
+      <td>John</td>
+      <td>No Action</td>
+      <td className="selectable warning">
+        <a href="#">Requires change</a>
+      </td>
+    </tr> */}
+    {/* <tr>
+        
+      <td>Jamie</td>
+      <td className="positive">Approved</td>
+      <td className="selectable positive">
+        <a href="#">Approve</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Jill</td>
+      <td className="negative">Denied</td>
+      <td className="selectable negative">
+        <a href="#">Remove</a>
+      </td>
+    </tr> */}
+
+{/* 
+
+
+
+{approvalRead.map(u => {
+                        return (
+                            <tr key={u.reimbId}>
+                            <th scope="row">{u.reimbId}</th>
+                            <td>{u.amount}</td>
+                            <td>{typeof u.sumitDate == 'string' ? u.sumitDate : u.sumitDate.toDateString()}</td>
+                            <td>{typeof u.resolvedDate == 'string' ? u.resolvedDate : u.resolvedDate.toDateString()}</td>
+                            <td>{u.description}</td>
+                            <img src={u.reciept}></img>
+                            <td>{u.firstName}</td>
+                            <td>{u.lastName}</td>
+                            <td>{u.reimbStatus}</td>
+                            <td>{u.reimbType}</td>
+                            <td className="selectable positive">
+                                <a href="#">Approve</a>
+                            </td>
+                            <td className="selectable negative">
+                                <a href="#">Remove</a>
+                            </td>
+                        </tr>)
+                    })}
+  </tbody>
+</table> */}
+
+
+          
+          
+          
+          
+{/*           
             <header>
                 <h2 id="accounts-header" className="dark">Accounts Section</h2>
             </header>
@@ -73,8 +257,8 @@ export const ManagerReviewComponent: React.FC = () => {
                         <th scope="col">Reciept</th>
                         <th scope="col">type</th>
                     </tr>
-                </thead>
-                <tbody>
+                </thead> */}
+                {/* <tbody>
                     {approvalRead.map(u => {
                         return (
                             <tr key={u.reimbId}>
@@ -83,27 +267,29 @@ export const ManagerReviewComponent: React.FC = () => {
                             <td>{typeof u.sumitDate == 'string' ? u.sumitDate : u.sumitDate.toDateString()}</td>
                             <td>{typeof u.resolvedDate == 'string' ? u.resolvedDate : u.resolvedDate.toDateString()}</td>
                             <td>{u.description}</td>
-                            <td>{u.reciept}</td>
+                            <img src={u.reciept}></img>
                             <td>{u.firstName}</td>
                             <td>{u.lastName}</td>
                             <td>{u.reimbStatus}</td>
                             <td>{u.reimbType}</td>
+                            <td className="positive">Approved</td>
+                            <td className="negative">Denied</td>
                         </tr>)
                     })}
-                </tbody>
-            </table>
+                </tbody> */}
+            {/* </table>
 
             <form>
-            <label>ReimbId:</label><input type="number" value={inputReimbID} onChange={(e) => setInputeimbID(+e.target.value) }/>
-            {/* <label>resolvedDate::</label><input type="date" value={inputResolvedDate} onChange={(e) => setInputResolvedDate(e.target.value) }/> */}
-            <label>statusId:</label><input type="number" value={inputStatusID} onChange={(e) => setInputStatusID(+e.target.value) }/>
+            <label>ReimbId:</label><input type="number" value={inputReimbID} onChange={(e) => setInputeimbID(+e.target.value) }/> */}
+                            {/* <label>resolvedDate::</label><input type="date" value={inputResolvedDate} onChange={(e) => setInputResolvedDate(e.target.value) }/> */}
+            {/* <label>statusId:</label><input type="number" value={inputStatusID} onChange={(e) => setInputStatusID(+e.target.value) }/>
             
             
             <button onClick={() => addUser()}>Submit</button>
-            </form>
+            </form> */}
 
             {/* react-bootstrap components  */}
-            <Modal show={modalVisible} onHide={() => setModalVisible(false)}>
+            {/* <Modal show={modalVisible} onHide={() => setModalVisible(false)}>
                 <Modal.Header>
                     <Modal.Title>New User</Modal.Title>
                 </Modal.Header>
@@ -117,7 +303,8 @@ export const ManagerReviewComponent: React.FC = () => {
                 <Modal.Footer>
                     <Button onClick={() => setModalVisible(false)}>Close</Button>
                 </Modal.Footer>
-            </Modal>
+            </Modal> */}
+
         </div>
     );
 };

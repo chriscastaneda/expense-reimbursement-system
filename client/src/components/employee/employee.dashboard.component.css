@@ -1,0 +1,61 @@
+#accounts-header {
+    background-color: var(--dark);
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+#accounts-header > button {
+    font-size: 0.5rem;
+}
+
+/* Custom Card */
+.Panel {
+    max-height: calc(100vh - 70px); 
+    overflow-x: hidden;
+    overflow-y: auto;
+    white-space: nowrap;
+    max-width:350px;
+  }
+
+  /* Table Font Align */
+  .id-padding, #id-padding{
+      text-align: center;
+  }
+
+ #page-label{
+      margin-top: 30px;
+  }
+
+
+/* .status{
+    color: #fecc27;
+} */
+
+#highlight > *{
+    color: #258cea !important;
+}
+
+  /* Flex Box */
+  #main-container{
+      display: flex;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+  }
+
+  #dashboard-container{
+      flex-grow: 3;
+  }
+
+  #pending-container {
+    flex-grow: 1;
+}
+
+#pending-container > *{
+    width: auto !important;
+}
+
+#dashboard-container > *{
+    width: auto !important;
+}
+

@@ -88,11 +88,37 @@ export const getAllReimbursements = async () => {
     });
 }
 
-// Account: Post to reimbursement table
-export const createUser = async (reimburse: Reimburse) => {
-    const response = await internalAxios.post('/employees/reimburse', reimburse);
-    return true;
+// Account: Post to reimbursement table  ************
+export const createUser = async (reimburse: any) => {
+let reader = new FileReader();
+reader.readAsDataURL(reimburse.reciept);
+const promise = new Promise((resolve, reject)=>{
+  
+    reader.onload = async ()=>{
+        reimburse.reciept = await reader.result;
+        console.log('AXIOS', reimburse.reciept);
+        const response = await internalAxios.post('/employees/reimburse', reimburse);
+      resolve(response);
+    }
+  });
+  return promise;
 }
+
+// let reader = new FileReader();
+// console.log(payload.image)
+// reader.readAsDataURL(payload.image);
+// const promise = new Promise((resolve, reject)=>{
+  
+//   reader.onload = async ()=>{
+//     payload.image = await reader.result;
+//     const response = await internalAxios.post('/requests/new',payload);
+//     resolve(response);
+//   }
+// });
+// return promise;
+
+
+
 /**************************************************** */
 
 
