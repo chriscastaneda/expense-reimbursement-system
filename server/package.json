@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/express": "^4.17.6",
-    "@types/jest": "^25.2.3",
+    "@types/jest": "^26.0.0",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/multer": "^1.4.3",
     "@types/node": "^14.0.13",
@@ -30,7 +30,7 @@
     "nodemon": "^2.0.4",
     "pg": "^8.2.1",
     "supertest": "^4.0.2",
-    "ts-jest": "^26.0.0",
+    "ts-jest": "^26.1.0",
     "ts-node": "^8.10.2",
     "tslint": "^6.1.2",
     "typescript": "^3.9.3"

@@ -9,7 +9,7 @@ export function VerifyLoginCredential(properties: any): Promise<Authenticate> {
         properties.userID,
         properties.roleID
     );
-    console.log('Service', authenticate)
+    // console.log('Service', authenticate)
     if (properties.userName && properties.userPassword) {
 
         return employeeDao.VerifyLoginCredential(authenticate);

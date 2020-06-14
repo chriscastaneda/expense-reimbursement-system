@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import './App.css';
-import LoginComponent from './components/Login/login.componet';
+import LoginComponent from './components/Login/login.component';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { AccountComponent } from './components/employee/accounts.component';
 import NavbarComponent from './components/employee/navbar.component';
@@ -15,16 +15,13 @@ function App() {
 // const isManager = localStorage.getItem('roleID') == '1';
   return (
     <div className="App">
-      <HashRouter>
-        <NavbarComponent />
+       <HashRouter>
         {/* <p>User Role: { isManager ? 'Manager' : 'Employee' }</p> */}
-        {/* <LoginComponent /> */}
+        <LoginComponent />
+        <NavbarComponent />
         <main>
         {/* <Suspense fallback={<div>Loading...</div>}> */}
           <Switch>
-          <Route path="/login">
-            <LoginComponent />
-              </Route>
               <Route path="/employee">
               <EmpolyeeDashboardComponent />
               </Route>

@@ -16,7 +16,7 @@ export const ManagerReviewComponent: React.FC = () => {
     const [inputStatusID, setInputStatusID] = useState(3);
 
 
-    const [modalVisible, setModalVisible] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false); /**Modal */
 
     useEffect(() => {
         loadPeople();   
@@ -38,10 +38,12 @@ export const ManagerReviewComponent: React.FC = () => {
             //dto communication request:::
         };
 
+        setModalVisible(true) /**OPEN MODAL HERE */
+
         await userRemote.updateAllManagerRequests(payload);  /**SEND REQUEST HERE */
         setInputStatusID(0); //clear fields
 
-        setModalVisible(true) /**OPEN MODAL HERE */
+        
         
 
         loadPeople(); /**GET REQUEST HERE */
@@ -57,7 +59,7 @@ export const ManagerReviewComponent: React.FC = () => {
     return (
         <div>
 
-<p id="table-padding">Pending Request</p>
+<p id="table-padding">Employee Request</p>
 
 
 <table className="ui compact celled definition table">
@@ -106,15 +108,17 @@ export const ManagerReviewComponent: React.FC = () => {
                             <td>{u.reimbStatus}</td>
                             <td>{u.reimbType}</td>
 
+
+
                             <td id="id-padding" className="collapsing">
         <div className="ui fitted checkbox ">
-          <input type="checkbox"/> <label></label>
+          <input value="1" onChange={(e) => setInputStatusID(+e.target.value)} type="radio" name="status"/> <label></label>
         </div>
       </td>
 
       <td id="id-padding" className="collapsing">
         <div className="ui fitted checkbox ">
-          <input type="checkbox"/> <label></label>
+          <input value="2" onChange={(e) => setInputStatusID(+e.target.value)}  type="radio" name="status"/> <label></label>
         </div>
       </td>
                             
@@ -137,13 +141,13 @@ export const ManagerReviewComponent: React.FC = () => {
       <th></th>
       
       <th >
-        <div id="button-color1" className="ui small  button">
+        <div id="button-color1" className="ui small  button" onClick={() => addUser()}>
           Approve
         </div>
       </th>
       <th >
-        <div id="button-color2" className="ui small  button">
-          Approve
+        <div id="button-color2" className="ui small  button" onClick={() => addUser()}>
+          Deny
         </div>
       </th>
 
@@ -151,7 +155,22 @@ export const ManagerReviewComponent: React.FC = () => {
   </tfoot>
 </table>
 
-
+{/* react-bootstrap components  */}
+             <Modal show={modalVisible} onHide={() => setModalVisible(false)}>
+                <Modal.Header>
+                    <Modal.Title>New User</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group>
+                            <Form.Label>"Review Updated"</Form.Label>
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={() => setModalVisible(false)}>Close</Button>
+                </Modal.Footer>
+            </Modal> 
 
 
 
@@ -288,22 +307,7 @@ export const ManagerReviewComponent: React.FC = () => {
             <button onClick={() => addUser()}>Submit</button>
             </form> */}
 
-            {/* react-bootstrap components  */}
-            {/* <Modal show={modalVisible} onHide={() => setModalVisible(false)}>
-                <Modal.Header>
-                    <Modal.Title>New User</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form>
-                        <Form.Group>
-                            <Form.Label>"Review Updated"</Form.Label>
-                        </Form.Group>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button onClick={() => setModalVisible(false)}>Close</Button>
-                </Modal.Footer>
-            </Modal> */}
+            
 
         </div>
     );

@@ -40,7 +40,7 @@ authenticationRouter.post('/login', async (request, response, next) => {
     let modelCredentials: Authenticate;
 
     try {
-        console.log(requestBody);
+        // console.log(requestBody);
         modelCredentials = await authenticateService.VerifyLoginCredential(requestBody);
     } catch (err) {
         console.log('Login Router error', err);

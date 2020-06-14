@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as usersRemote from '../../remote/users.remote';
 import { withRouter, RouteComponentProps } from 'react-router';
 import { User } from '../../models/User';
+import '../Login/login.component.css'
 
 
 const LoginComponent:React.FC<RouteComponentProps> = (props)=>{
@@ -38,7 +39,7 @@ const LoginComponent:React.FC<RouteComponentProps> = (props)=>{
         localStorage.setItem('accessToken', accessToken); 
         // usersRemote.getAllUserTable();
 
-        loadCredentails();
+        loadCredentails(); 
     };
 
 
@@ -51,6 +52,41 @@ const LoginComponent:React.FC<RouteComponentProps> = (props)=>{
 
     return(
         <div>
+{/* 
+<div className="wrapper fadeInDown">
+  <div id="formContent">
+    {/* <!-- Tabs Titles --> */}
+
+    {/* <!-- Icon --> */}
+    {/* <div className="fadeIn first">
+      <img src="https://www.b-cube.in/wp-content/uploads/2014/05/aditya-300x177.jpg" id="icon" alt="User Icon" />
+      <h1>Aditya News</h1>
+    </div> */}
+
+    {/* <!-- Login Form --> */}
+    {/* <form>
+      <input type="text" id="login" className="fadeIn second" name="login" value={inputUsertName} onChange={e => setInputUsertName(e.target.value)} placeholder="username" />
+
+      <input type="text" id="password" className="fadeIn third" name="login" value={inputPassword} onChange={e => setinputPassword(e.target.value)} placeholder="password" />
+      
+    </form>
+    <input type="submit" className="fadeIn fourth" value="Log In" onClick={() => addUser()} /> */}
+
+    {/* <!-- Remind Passowrd --> */}
+    {/* <div id="formFooter">
+      <a className="underlineHover">Welcome Back</a>
+    </div>
+
+  </div>
+</div>  */}
+
+
+
+
+
+
+
+
             <label>username</label><input type="text" name="text" value={inputUsertName} onChange={e => setInputUsertName(e.target.value)}/>
             
             <label>password</label><input type="password" name="password" value={inputPassword} onChange={e => setinputPassword(e.target.value)}/>
@@ -63,23 +99,14 @@ const LoginComponent:React.FC<RouteComponentProps> = (props)=>{
                         <th scope="col">#</th>
                         <th scope="col">userName</th>
                         <th scope="col">password</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">email</th>
-                        <th scope="col">roleId</th>
                     </tr>
                 </thead>
                 <tbody>
                     {reimbursements.map(u => {
                         return (
                             <tr key={u.id}>
-                            <th scope="row">{u.id}</th>
                             <td>{u.userName}</td>
                             <td>{u.password}</td>
-                            <td>{u.firstName}</td>
-                            <td>{u.lastName}</td>
-                            <td>{u.email}</td>
-                            <td>{u.roleId}</td>
                         </tr>)
                     })}
                 </tbody>
