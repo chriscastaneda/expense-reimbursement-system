@@ -41,6 +41,17 @@ Demo:
 - _client/_ npm install
 - npm start
 
+#### Default accounts:
+```
+Employee:
+-username: employee
+-password: 1234
+
+Administrator: 
+-username: admin
+-password: 5678
+```
+
 ### Test Coverage
   - npm test
   - view in browser: coverage/icon-report/index.html
