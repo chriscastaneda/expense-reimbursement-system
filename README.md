@@ -47,7 +47,7 @@ Employee:
 -username: employee
 -password: 1234
 
-Administrator: 
+Finance Manager: 
 -username: admin
 -password: 5678
 ```
