@@ -31,13 +31,16 @@ Demo:
 - [x] Git SCM (on GitHub)
 
 ## Init Instructions
-
-### Server - SpringBoot
-- Update Maven Project
-- Run as springboot app: _Application.java_
-
-### Client - React JS
 - install node 6.14.4 or higher
+
+### Server - Express
+- _server/_ npm install
+- npm start
+
+### Client - React
 - _client/_ npm install
 - npm start
 
+### Test Coverage
+  - npm test
+  - view in browser: coverage/icon-report/index.html
