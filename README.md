@@ -44,11 +44,11 @@ Demo:
 #### Default accounts:
 ```
 Employee:
--username: employee
+-username: EmployeeUser
 -password: 1234
 
 Finance Manager: 
--username: admin
+-username: ManagerUser
 -password: 5678
 ```
 
