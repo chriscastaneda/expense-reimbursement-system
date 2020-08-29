@@ -47,7 +47,7 @@ Demo:
 
 </div> 
 
-```
+```js
 Employee:
 -username: EmployeeUser
 -password: 1234
