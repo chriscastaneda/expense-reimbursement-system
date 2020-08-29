@@ -43,29 +43,14 @@ Demo:
 
 <div id="anchor">
   
-  <span style="color:blue">some This is Blue italic. text</span>
-  
-#### ~ Default accounts: [Blue](#)
-
-
-<h4>
-
-```diff
-- red
-+ green
-# gray
-```
-
-</h4>
+#### [~ Default accounts:](#)
 
 </div> 
 
-```html
+```
 Employee:
 -username: EmployeeUser
 -password: 1234
-
-#000080
 
 Finance Manager:  {: style="color: blue; opacity: 0.80;" }
 -username: ManagerUser
