@@ -46,16 +46,15 @@ Demo:
 #### ~ Default accounts:
 
 
-<h2>
+<h4>
 
 ```diff
 - red
 + green
-! orange
 # gray
 ```
 
-</h2>
+</h4>
 
 </div> 
 
