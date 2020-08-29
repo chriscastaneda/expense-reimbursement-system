@@ -45,14 +45,16 @@ Demo:
   
 #### ~ Default accounts:
 
+- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
+
 </div> 
 
-```js
+```
 Employee:
 -username: EmployeeUser
 -password: 1234
 
-<p style='color:red'>This is some red text.</p>
+- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
 
 Finance Manager:
 -username: ManagerUser
