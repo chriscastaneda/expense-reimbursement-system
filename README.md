@@ -43,7 +43,7 @@ Demo:
 
 <div id="anchor">
   
-#### &x2139; Default accounts:
+#### &#x2139; Default accounts:
 
 </div> 
 
