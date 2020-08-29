@@ -52,7 +52,7 @@ Employee:
 -username: EmployeeUser
 -password: 1234
 
-Finance Manager:  {: style="color: blue; opacity: 0.80;" }
+Finance Manager:
 -username: ManagerUser
 -password: 5678
 ```
