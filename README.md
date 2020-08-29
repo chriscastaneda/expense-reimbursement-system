@@ -45,8 +45,7 @@ Demo:
   
 #### [~ Default accounts:](#)
 
-#### A blue heading
-{: .blue}
+[Look, ma! Red!](red)
 
 </div> 
 
