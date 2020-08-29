@@ -47,10 +47,12 @@ Demo:
 
 </div> 
 
-```html
+```
 Employee:
 -username: EmployeeUser
 -password: 1234
+
+<p style='color:red'>This is some red text.</p>
 
 Finance Manager:
 -username: ManagerUser
