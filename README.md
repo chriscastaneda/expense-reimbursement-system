@@ -43,9 +43,7 @@ Demo:
 
 <div id="anchor">
   
-#### [~ Default accounts:](#)
-
-[Look, ma! Red!](red)
+#### ~ Default accounts:
 
 </div> 
 
