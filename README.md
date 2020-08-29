@@ -58,12 +58,14 @@ Demo:
 
 </div> 
 
-```diff
-+ Employee:
+```html
+Employee:
 -username: EmployeeUser
 -password: 1234
 
-+ Finance Manager: 
+#000080
+
+Finance Manager: 
 -username: ManagerUser
 -password: 5678
 ```
