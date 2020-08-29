@@ -41,11 +41,11 @@ Demo:
 - _client/_ npm install
 - npm start
 
-<div id="anchor" class="text-blue mb-2">
+<div id="anchor"> <span style=“color:green;”>
   
 #### Default accounts:
 
-</div>
+</span> </div> 
 
 ```
 Employee:
