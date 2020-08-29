@@ -37,13 +37,11 @@ Demo:
 - _server/_ npm install
 - npm start
 
-<div>
-
 ### Client - React
 - _client/_ npm install
 - npm start
 
-</div>
+<div id="anchor">
 
 #### Default accounts:
 ```
@@ -55,6 +53,8 @@ Finance Manager:
 -username: ManagerUser
 -password: 5678
 ```
+
+</div>
 
 ### Test Coverage
   - npm test
