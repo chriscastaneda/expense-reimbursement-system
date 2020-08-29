@@ -42,11 +42,9 @@ Demo:
 - npm start
 
 <div id="anchor">
-<h4>  
-```diff
-+ Default accounts:
-```
-</h4
+  
+#### ~ Default accounts:
+  
 </div> 
 
 ```
