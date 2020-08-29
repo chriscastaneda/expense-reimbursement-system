@@ -41,7 +41,7 @@ Demo:
 - _client/_ npm install
 - npm start
 
-<div id="anchor" class="text-blue">
+<div id="anchor" class="text-blue mb-2">
   
 #### Default accounts:
 
