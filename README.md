@@ -45,6 +45,9 @@ Demo:
   
 #### [~ Default accounts:](#)
 
+#### A blue heading
+{: .blue}
+
 </div> 
 
 ```
