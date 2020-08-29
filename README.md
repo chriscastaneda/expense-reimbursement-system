@@ -67,7 +67,7 @@ Employee:
 
 #000080
 
-Finance Manager: 
+Finance Manager:  {: style="color: blue; opacity: 0.80;" }
 -username: ManagerUser
 -password: 5678
 ```
