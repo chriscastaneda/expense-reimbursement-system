@@ -43,9 +43,7 @@ Demo:
 
 <div id="anchor">
   
-#### ~ Default accounts:
-
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
+#### (&#x1F539;) Default accounts:
 
 </div> 
 
@@ -53,8 +51,6 @@ Demo:
 Employee:
 -username: EmployeeUser
 -password: 1234
-
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15`
 
 Finance Manager:
 -username: ManagerUser
