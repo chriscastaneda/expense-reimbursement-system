@@ -36,11 +36,15 @@ Demo:
 ### Server - Express
 - _server/_ npm install
 - npm start
+
 <div>
+
 ### Client - React
 - _client/_ npm install
 - npm start
+
 </div>
+
 #### Default accounts:
 ```
 Employee:
