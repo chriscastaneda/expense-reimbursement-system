@@ -43,7 +43,7 @@ Demo:
 
 <div id="anchor">
 
-#### @@ ~Default accounts:
+#### (&#x1F539;) ~Default accounts:
 ```
 Employee:
 -username: EmployeeUser
