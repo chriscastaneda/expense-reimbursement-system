@@ -41,9 +41,15 @@ Demo:
 - _client/_ npm install
 - npm start
 
+
+### Test Coverage
+  - npm test
+  - view in browser: coverage/icon-report/index.html
+
+## Login Accounts
 <div id="anchor">
-  
-#### &#x128280; [Default accounts:](#)
+
+#### &#x128280; Default accounts
 
 </div> 
 
@@ -58,7 +64,3 @@ Finance Manager:
 ```
 
 </div>
-
-### Test Coverage
-  - npm test
-  - view in browser: coverage/icon-report/index.html
