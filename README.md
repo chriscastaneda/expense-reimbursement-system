@@ -46,7 +46,11 @@ demo:
   - npm test
   - view in browser: coverage/icon-report/index.html
 
-chris.j.castaneda@gmail.com
+## Login Accounts
+## User Login
+<div id="anchor">
+
+#### &#x128280; Default accounts
 </div> 
 
 ```
