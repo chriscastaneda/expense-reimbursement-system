@@ -46,7 +46,6 @@ demo:
   - npm test
   - view in browser: coverage/icon-report/index.html
 
-## Login Accounts
 ## User Login
 <div id="anchor">
 
