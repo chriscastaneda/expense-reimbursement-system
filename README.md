@@ -7,7 +7,7 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 - Peer-to-peer interaction
 - image uploading
 
-Demo:
+demo:
 [![Demo](https://github.com/chriscastaneda/rev-p3-stackoverflow/blob/master/demo_snip.PNG)](https://drive.google.com/file/d/1BLASWSgBj68wFKGgZ9Nf1D_zzBa0_9Wc/view?usp=sharing)
 
 ## Features
@@ -46,11 +46,7 @@ Demo:
   - npm test
   - view in browser: coverage/icon-report/index.html
 
-## User Login
-<div id="anchor">
-
-#### &#x128280; Default accounts
-
+chris.j.castaneda@gmail.com
 </div> 
 
 ```
