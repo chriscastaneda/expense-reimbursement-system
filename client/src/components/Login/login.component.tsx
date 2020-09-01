@@ -72,7 +72,7 @@ export const LoginComponent:React.FC = ()=>{
     //     console.log('Recieved authentication request: ', user);
     //     });        
     // };
- 
+
     return(
       <div>
         <div id="background" style={{backgroundImage: `url(${Background})` }}>  
