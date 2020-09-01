@@ -5,30 +5,111 @@ npm test //run test
 
 Setup:
 --------
-create-react-app client --typescript="typescript"
-npm install react-router react-router-dom 		/*Routing*/
+Client
+----------------
+create-react-app client --template="typescript"
+npm install react-router react-router-dom 					/*Routing*/
 npm install --save-dev @types/node @types/react @types/react-router-dom @types/react-router
 
-*remote folder: npm install axios
 npm install --save-dev @types/axios
 
-npx tslint --init   /*installs tslint.json*/
-npm install		/*to install node_modules for package.json edits*/
+npm install tslint --init --save-dev   						/*installs tslint.json*/
+npm install --save-dev enzyme enzyme-adapter-react-16 jest@^24.9.0 @types/enzyme @types/jest @types/enzyme-adapter-react-16
 
+npm install @material-ui/core @material-ui/icons @material-ui/lab
+npm install react-bootstrap
+npm install --save-dev @types/react-bootstrap
+
+npm install									/*to install node_modules for package.json edits*/
+
+
+Server:
+--------------
 npm install --save-dev ts-jest jest @types/jest
 npm install --save-dev supertest @types/supertest
-jest.config.ts		/*add manually*/
-jest.config.js		/*add manually*/
+jest.config.ts									/*add manually*/
+jest.config.js									/*add manually*/
+
 
 npm install cors jsonwebtoken bcryptjs
 npm install --save-dev @types/bcryptjs @types/body-parser @types/cors @types/jsonwebtoken
-npm install --save react-aws-s3  @types/react-aws-s3 //react-s3 bucket
+
+package.json:
+npm test -- -verbose --coverage --watchAll
 
 ------------------------
 Setup react:
 npm install -g react app //globlal Install
 install yarn //maybe if getting errors or package.json missing dependencies
-//RX something with yarn to create react app
+//npx with yarn to create react app
 create-react-app NameHere --template="typescript"  //create app w/typescript
 npm start //launch app
 ---------------------
+
+
+============================
+
+-Package.json Server file:
+"scripts": {
+    "start": "nodemon ./src/app.ts",
+    "test": "jest --verbose --watch --coverage --watchAll"
+
+-.gitignore:
+.vscode/
+node_modules/
+
+-tsconfig.js:
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "target": "es6",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "baseUrl": "./",
+        "rootDirs": [".", "src"],
+        "paths": {
+            "*": [
+                "node_modules/*",
+                "src/types/*"            ]
+        },
+    },
+    
+    "include": [
+        "src/**/*",
+        "src/util/*.d.ts"
+    ]
+}
+
+
+jest.config.ts: server
+module.exports = {
+    'transform': {
+        '^.+\\.tsx?$': 'ts-jest'
+    },
+    'testRegex': '(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
+    'moduleFileExtensions': [
+        'ts',
+        'tsx',
+        'js',
+        'jsx',
+        'json',
+        'node'
+    ],
+    'globals': {
+        'ts-jest': {
+            'userBabelrc': true
+        }
+    }
+
+
+jest.config.js:
+module.exports = {
+    /* Delegate to ts-jest - most configuration will be in jest.config.ts */
+    preset: 'ts-jest',
+    testEnvironment: 'node',
+};

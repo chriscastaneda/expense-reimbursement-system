@@ -1,48 +1,62 @@
 import React, { lazy, Suspense } from 'react';
 import './App.css';
-import LoginComponent from './components/Login/login.component';
-import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
+// import { LoginComponent } from './components/Login/login.component';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { AccountComponent } from './components/employee/accounts.component';
 import NavbarComponent from './components/employee/navbar.component';
-import { EmpolyeeDashboardComponent } from './components/employee/employee.dashboard.component';
+// import { EmpolyeeDashboardComponent } from './components/employee/employee.dashboard.component';
 import { EmployeeReimburseComponent } from './components/employee/employee.reimburse.component';
 import { ManagerDashboardComponent } from './components/manager/manager.dashboard.component';
 import { ManagerReviewComponent } from './components/manager/manager.review.component';
 
-// const ManagerDashboardComponent = lazy(() => import('./components/manager/manager.dashboard.component').then(({ManagerDashboardComponent}) => ({default: ManagerDashboardComponent})))
+
+
+const LoginComponent = lazy(() => import('./components/Login/login.component').then(({LoginComponent}) => ({default: LoginComponent})));
+const EmpolyeeDashboardComponent = lazy(() => import('./components/employee/employee.dashboard.component').then(({EmpolyeeDashboardComponent}) => ({default: EmpolyeeDashboardComponent})));
+
 
 function App() {
-// const isManager = localStorage.getItem('roleID') == '1';
+  const isEmployee = localStorage.getItem('userName') === 'EmployeeUser';
+  const isManager = localStorage.getItem('userName') === 'ManagerUser';
+
   return (
+    <BrowserRouter>
     <div className="App">
-       <HashRouter>
-        {/* <p>User Role: { isManager ? 'Manager' : 'Employee' }</p> */}
-        <LoginComponent />
-        <NavbarComponent />
+        {/* <p>User Role: { isEmployee ? 'Employee' : 'Manager/OTHER' }</p> */}
         <main>
-        {/* <Suspense fallback={<div>Loading...</div>}> */}
+        <Suspense fallback={<div>Loading...</div>}>
+
           <Switch>
+              <Route exact path="/">
+                <LoginComponent />
+              </Route>
+              
+              <React.Fragment>
+              <NavbarComponent />
+              
               <Route path="/employee">
-              <EmpolyeeDashboardComponent />
+                { isEmployee ? (<EmpolyeeDashboardComponent />) : (<Redirect to="/"/>)}
               </Route>
               <Route path="/reimburse">
-              <EmployeeReimburseComponent />
+                <EmployeeReimburseComponent />
               </Route>
+
+
               <Route path="/manager">
-              <ManagerDashboardComponent />
-              {/* {isManager ? <ManagerDashboardComponent /> : <Redirect to="/login"/> } */}
+                { isManager ? <ManagerDashboardComponent /> : <Redirect to="/"/> }
               </Route>
               <Route path="/review">
-              <ManagerReviewComponent />
+                <ManagerReviewComponent />
               </Route>
-            <Route path="/template">
+            {/* <Route path="/template">
               <AccountComponent />
-            </Route>
+            </Route> */}
+            </React.Fragment>
           </Switch>
-          {/* </Suspense> */}
+          </Suspense>
         </main>
-      </HashRouter>
     </div>
+    </BrowserRouter>
   );
 }
 

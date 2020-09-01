@@ -40,6 +40,7 @@ export const ManagerReviewComponent: React.FC = () => {
 
         setModalVisible(true) /**OPEN MODAL HERE */
 
+        console.log(payload)
         await userRemote.updateAllManagerRequests(payload);  /**SEND REQUEST HERE */
         setInputStatusID(0); //clear fields
 
@@ -76,6 +77,7 @@ export const ManagerReviewComponent: React.FC = () => {
       <th>Last Name</th>
       <th>Status</th>
       <th>type</th>
+      <th  id="id-padding">Select</th>
       <th id="checkbox"></th>
       <th id="checkbox"></th>
     </tr>
@@ -111,16 +113,22 @@ export const ManagerReviewComponent: React.FC = () => {
 
 
                             <td id="id-padding" className="collapsing">
-        <div className="ui fitted checkbox ">
-          <input value="1" onChange={(e) => setInputStatusID(+e.target.value)} type="radio" name="status"/> <label></label>
-        </div>
-      </td>
+                          <div className="ui fitted checkbox ">
+                            <input value={u.reimbId} onChange={(e) => setInputeimbID(+e.target.value)} type="radio" name="select"/> <label></label>
+                          </div>
+                        </td>
 
-      <td id="id-padding" className="collapsing">
-        <div className="ui fitted checkbox ">
-          <input value="2" onChange={(e) => setInputStatusID(+e.target.value)}  type="radio" name="status"/> <label></label>
-        </div>
-      </td>
+                            <td id="id-padding" className="collapsing">
+                          <div className="ui fitted checkbox ">
+                            <input value="1" onChange={(e) => setInputStatusID(+e.target.value)} type="radio" name="status"/> <label></label>
+                          </div>
+                        </td>
+
+                        <td id="id-padding" className="collapsing">
+                          <div className="ui fitted checkbox ">
+                            <input value='2' onChange={(e) => setInputStatusID(+e.target.value, )} type="radio" name="status"/> <label></label>
+                          </div>
+                        </td>
                             
                         </tr>)
                     })}
@@ -129,6 +137,7 @@ export const ManagerReviewComponent: React.FC = () => {
   </tbody>
   <tfoot className="full-width">
     <tr>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -163,7 +172,7 @@ export const ManagerReviewComponent: React.FC = () => {
                 <Modal.Body>
                     <Form>
                         <Form.Group>
-                            <Form.Label>"Review Updated"</Form.Label>
+                            <Form.Label>"Request Updated"</Form.Label>
                         </Form.Group>
                     </Form>
                 </Modal.Body>
@@ -296,12 +305,12 @@ export const ManagerReviewComponent: React.FC = () => {
                         </tr>)
                     })}
                 </tbody> */}
-            {/* </table>
+            {/* </table> */}
 
-            <form>
-            <label>ReimbId:</label><input type="number" value={inputReimbID} onChange={(e) => setInputeimbID(+e.target.value) }/> */}
-                            {/* <label>resolvedDate::</label><input type="date" value={inputResolvedDate} onChange={(e) => setInputResolvedDate(e.target.value) }/> */}
-            {/* <label>statusId:</label><input type="number" value={inputStatusID} onChange={(e) => setInputStatusID(+e.target.value) }/>
+            {/* <form>
+            <label>ReimbId:</label><input type="number" value={inputReimbID} onChange={(e) => setInputeimbID(+e.target.value) }/>
+                            <label>resolvedDate::</label><input type="date" value={inputResolvedDate} onChange={(e) => setInputResolvedDate(e.target.value) }/>
+            <label>statusId:</label><input type="number" value={inputStatusID} onChange={(e) => setInputStatusID(+e.target.value) }/>
             
             
             <button onClick={() => addUser()}>Submit</button>

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { dbConnection } from './db';
 import { Dashboard, DashboardRow } from '../models/Dashboard';
 import { Pending, PendingRow } from '../models/MangerPending';

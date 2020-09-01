@@ -6,6 +6,7 @@ interface NavbarProps {
     history: History;
 }
 
+//Original Navbar
 const NavbarComponent: React.FC<RouteComponentProps> = (props) => {
 
     // const renderOnCurrentPath = (path: string) => {

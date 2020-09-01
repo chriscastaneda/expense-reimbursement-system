@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { dbConnection } from '../daos/db';
 import { Dashboard, DashboardRow } from '../models/Dashboard';
 import { Pending, PendingRow } from '../models/EmployeePending';
@@ -19,7 +20,8 @@ export async function getAllDashboards(): Promise<Dashboard[]> {
                 FROM ers_reimbursement \
                 LEFT JOIN ers_users ON ers_reimbursement.reimb_resolver_id = ers_users.user_id \
                 LEFT JOIN ers_reimbursement_status ON ers_reimbursement.reimb_status_id = ers_reimbursement_status.status_id \
-                LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id';
+                LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id \
+	            WHERE ers_reimbursement.reimb_status_id = 1 OR ers_reimbursement.reimb_status_id = 2';
 
     const result = await dbConnection.query<DashboardRow>(sql, []);
     return result.rows.map(Dashboard.from);

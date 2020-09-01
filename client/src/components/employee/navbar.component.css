@@ -9,3 +9,16 @@ a:visited, a:link {
 .font-color{
     color: white !important;
 }
+
+#flexbox {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+#flex-left {
+    flex-grow: 4;
+}
+
+#flex-right {
+    flex-grow: 1 !important;
+}

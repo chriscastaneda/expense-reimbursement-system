@@ -16,6 +16,7 @@ employeeRouter.get('/dashboard',  async(request, response, next)=> {
         dashboards = await employeeService.getAllDashboards();
         response.json(dashboards);
     }catch(err){
+        console.log(err);
         response.sendStatus(500);
         return;
     }

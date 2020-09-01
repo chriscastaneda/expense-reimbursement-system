@@ -48,7 +48,7 @@ authenticationRouter.post('/login', async (request, response, next) => {
         return;
     }if (modelCredentials) {
         // Generate an access token
-        const accessToken = jwt.sign({ username: modelCredentials.userName, role: modelCredentials.roleID, }, accessTokenSecret, { expiresIn: '20min' });
+        const accessToken = jwt.sign({ username: modelCredentials.userName, role: modelCredentials.roleID, }, accessTokenSecret);
 
         /*const refreshToken = jwt.sign({ 
             username: modelCredentials.username,  role: modelCredentials.roleID }, refreshTokenSecret);*/
@@ -63,7 +63,7 @@ authenticationRouter.post('/login', async (request, response, next) => {
        console.log('ModelCredentails',modelCredentials);
         response.json({ 
             accessToken,
-            userID,
+            userName,
             roleID
             /*refreshToken */
         });

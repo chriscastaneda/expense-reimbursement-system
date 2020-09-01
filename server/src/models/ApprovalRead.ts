@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 /**Convert Postres Schema into Javascript Object */
 export class ApprovalRead {
     reimbId: number;
