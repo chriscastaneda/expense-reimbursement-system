@@ -8,7 +8,7 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 - image uploading
 
 demo:
-[![Demo](https://github.com/chriscastaneda/rev-p3-stackoverflow/blob/master/demo_snip.PNG)](https://drive.google.com/file/d/1oSlsYX0GcenCaFCzxPvDs2pmb5mroEO3/view?usp=sharing)
+[![Demo](https://github.com/chriscastaneda/rev-p1-expense-reimbursement-system/blob/master/assets/img/demo_snip.PNG)](https://drive.google.com/file/d/1oSlsYX0GcenCaFCzxPvDs2pmb5mroEO3/view?usp=sharing)
 
 ## Features
 - Documentation (all methods have basic documentation)
