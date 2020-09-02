@@ -82,7 +82,7 @@ export const EmployeeReimburseComponent: React.FC = () => {
                 <div id="card-container">
                     
                     {/* Semantic-UI */}
-                    <p>Add Reimbursement</p>
+                    <p id="title-space">Add Reimbursement</p>
                     <div className="ui card">
                         <div className="content">
                             <h4 className="ui sub header">How Was Your Trip?</h4>
@@ -114,7 +114,7 @@ export const EmployeeReimburseComponent: React.FC = () => {
                                 <label>Travel Type: </label>
                             
 
-                            <div className="grouped fields">
+                            <div className="grouped fields group-align" id="">
                                 <div className="field">
                                 <div className="ui radio checkbox">
                                     <input type="radio" name="type" value="1" onChange={(e) => setInputType(+e.target.value)} />
@@ -124,19 +124,19 @@ export const EmployeeReimburseComponent: React.FC = () => {
                                 <div className="field">
                                 <div className="ui radio checkbox">
                                     <input type="radio" name="type" value="2" onChange={(e) => setInputType(+e.target.value)} />
-                                    <label>Travel</label>
+                                    <label>Travel </label>
                                 </div>
                                 </div>
                                 <div className="field">
                                 <div className="ui radio checkbox">
                                     <input type="radio" name="type" value="3" onChange={(e) => setInputType(+e.target.value)} />
-                                    <label>Food</label>
+                                    <label>Food   </label>
                                 </div>
                                 </div>
                                 <div className="field">
                                 <div className="ui radio checkbox">
                                     <input type="radio" name="type" value="4" onChange={(e) => setInputType(+e.target.value)} />
-                                    <label>Other</label>
+                                    <label>Other  </label>
                                 </div>
                                 </div>
                             </div>
@@ -175,7 +175,7 @@ export const EmployeeReimburseComponent: React.FC = () => {
                         <div className="extra content">
                             <button className="ui basic button" onClick={() => addUser()}>
                                 <i className=" user"></i>
-                                    Submmit
+                                    Submit
                             </button>
 
                         </div>

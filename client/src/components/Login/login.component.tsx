@@ -18,7 +18,6 @@ export const LoginComponent:React.FC = ()=>{
     const [inputPassword, setinputPassword] = useState('');
 
     useEffect(() => {
-      addUser();
       const handleWindowResize = () => {
         setWindowWidth(window.innerWidth);
       }
@@ -29,41 +28,35 @@ export const LoginComponent:React.FC = ()=>{
     }, []);
 
 
-    const addUser = async () => {
-      const payload = {
-          userID: undefined, 
-          userRole: undefined,
-          userName: inputUsertName,
-          userPassword: inputPassword
-      };
-      
-        
-      console.log('Sending authentication request: ', payload);
-      const response = await usersRemote.createToken(payload); //Send POST
 
-      const userName = response.data.userName;
-      const roleID = response.data.roleID;
-      const accessToken = response.data.accessToken;
-      
-      localStorage.setItem('userName', userName);
-      localStorage.setItem('roleID', roleID); 
-      localStorage.setItem('accessToken', accessToken); 
-      
-      if (localStorage.getItem('userName') === 'EmployeeUser'){
-        console.log("employee path");
-        history.push('/employee'); //route path in app.ts
-      }else if(localStorage.getItem('userName') === 'ManagerUser'){
-        console.log("manager path");
-        history.push('/manager'); //route path in app.ts
-      }else{
-        window.alert("Invalid username or password");
-      };
-      
-      setInputUsertName(''); //clear fields
-      setinputPassword('');
+	  let response: any;
+    const setInformation = async () => {
+    
+    setInputUsertName(''); //clear fields
+    setinputPassword('');
 
-        // loadCredentails(); 
+    localStorage.setItem('userName', response.data.userName);
+    localStorage.setItem('roleID', response.data.roleID); 
+    localStorage.setItem('accessToken', response.data.accessToken); 
+
+    history.push('/redirect'); //route path to app.ts
+  }
+
+  const addUser = async () => {
+    const payload = {
+        userID: undefined, 
+        userRole: undefined,
+        userName: inputUsertName,
+        userPassword: inputPassword
     };
+    try {
+      response = await usersRemote.createToken(payload); //Send POST
+      await setInformation();
+    } catch {
+      alert('Invalid username or password');
+    }
+  }
+    
 
     //  const loadCredentails = () => {   
 
@@ -87,7 +80,7 @@ export const LoginComponent:React.FC = ()=>{
             <section className="login-container">
 
               {/* Semantic-ui form*/}
-              <form className="ui form">
+              <div className="ui form">
                 <div className="field width-container">
                   <label><h1 className="font-white">Trip</h1></label>
                   <label><span className="font-grey">Corporate Travel & Expense</span></label>
@@ -109,11 +102,11 @@ export const LoginComponent:React.FC = ()=>{
               {/* </div> */}
               
                 </div>
-              </form>
+              </div>
             </section>
 
             <section>
-              <footer className="footer font-color">recent bug: if page does not redirect on login, please refresh browser and enter credentials again. </footer>
+              <footer className="footer font-color"> </footer>
             </section> 
           </main>
         </div>

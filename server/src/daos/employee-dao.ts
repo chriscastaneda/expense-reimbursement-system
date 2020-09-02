@@ -36,7 +36,7 @@ export async function getAllPendings(): Promise<Pending[]> {
                 reimb_type \
                 FROM ers_reimbursement \
                 LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id \
-                WHERE ers_reimbursement.reimb_id = 3;';
+                WHERE ers_reimbursement.reimb_status_id = 3';
 
     const result = await dbConnection.query<PendingRow>(sql, []);
     return result.rows.map(Pending.from);

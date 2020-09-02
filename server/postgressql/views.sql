@@ -33,3 +33,12 @@ REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public FROM rev_asses_tier3;
    REASSIGN OWNED BY rev_asses_tier3 TO schema_admin;
    
   
+  
+  SELECT  
+                ers_reimbursement.reimb_id, 
+                ers_reimbursement.reimb_sumit_date, 
+                
+                reimb_type 
+                FROM ers_reimbursement 
+                LEFT JOIN ers_reimbursement_type ON ers_reimbursement.reimb_type_id = ers_reimbursement_type.type_id 
+                WHERE ers_reimbursement.reimb_status_id = 3;

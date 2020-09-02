@@ -37,8 +37,18 @@
       justify-content: center !important;
   }
 
-  #card-container{
+  #card-container > *{
       flex-grow: 1 !important;
+  }
+
+  #title-space {
+      margin-top: 30px;
+  }
+
+  .group-align{
+    justify-content: flex-start !important;
+    padding-left: 100px;
+    padding-right: 500px;
   }
 
   #pending-container {

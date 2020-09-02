@@ -31,11 +31,17 @@ function App() {
                 <LoginComponent />
               </Route>
               
+              <Route exact path="/redirect">
+              { isEmployee ? (<Redirect to="/employee"/>) : 
+                (isManager ? (<Redirect to="/manager"/>) : <Redirect to="/"/> )
+              }
+              </Route>
+
               <React.Fragment>
               <NavbarComponent />
               
               <Route path="/employee">
-                { isEmployee ? (<EmpolyeeDashboardComponent />) : (<Redirect to="/"/>)}
+                <EmpolyeeDashboardComponent />
               </Route>
               <Route path="/reimburse">
                 <EmployeeReimburseComponent />
@@ -43,7 +49,7 @@ function App() {
 
 
               <Route path="/manager">
-                { isManager ? <ManagerDashboardComponent /> : <Redirect to="/"/> }
+                <ManagerDashboardComponent />
               </Route>
               <Route path="/review">
                 <ManagerReviewComponent />

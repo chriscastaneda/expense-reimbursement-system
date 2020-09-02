@@ -22,6 +22,7 @@ export const EmpolyeeDashboardComponent: React.FC = () => {
         });  
         userRemote.getAllEmployeePending().then(pending => {
             setPending(pending);
+            console.log("Pending: ", pending);
         });     
     } 
 

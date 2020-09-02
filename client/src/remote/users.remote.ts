@@ -25,6 +25,7 @@ export const getAllEmployeePending = async () => {
     const response = await internalAxios.get<EmployeePending[]>('/employees/pending');
     return response.data.map(pending => {
         pending.sumitDate = new Date(pending.sumitDate); // Replace string birthdate with Date object
+        console.log("Pending remote: ", pending);
         return pending;
     });
 }
@@ -35,8 +36,8 @@ export const getAllEmployeeReimburse = async () => {
     return response.data.map(reimburse => {
         reimburse.sumitDate = new Date(reimburse.sumitDate); // Replace string birthdate with Date object
         reimburse.resolvedDate = new Date(reimburse.resolvedDate);
-        // return reimburse;
-        console.log(response);
+        // console.log("remote employee: ",reimburse);
+        return reimburse;
     });
     
 }
@@ -125,7 +126,8 @@ const promise = new Promise((resolve, reject)=>{
 // Authenication:request token
 export const createToken = async (login: Authenticate) => {
     const response = await internalAxios.post('/authentication/login', login);
-    return response; //console.log(response);
+    ///console.log("CreateToken Remote: ", response);
+    return response; 
 }
 
 
