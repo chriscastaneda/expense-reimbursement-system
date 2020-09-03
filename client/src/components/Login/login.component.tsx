@@ -56,11 +56,16 @@ export const LoginComponent:React.FC = ()=>{
         userName: inputUsertName,
         userPassword: inputPassword
     };
-    try {
-      response = await usersRemote.createToken(payload); //Send POST
-      await setInformation();
-    } catch {
-      alert('Invalid username or password');
+
+    if( inputUsertName  == '' || inputPassword == ''){
+      alert('Please fill in required username & password');
+    }else{
+      try {
+        response = await usersRemote.createToken(payload); //Send POST
+        await setInformation();
+      } catch {
+        alert('Invalid username or password');
+      }
     }
   }
     
@@ -97,7 +102,7 @@ export const LoginComponent:React.FC = ()=>{
                 <div className="field width-container">
                   <input type="password" name="last-name" placeholder="Password" value={inputPassword} onChange={e => setinputPassword(e.target.value)}/>
                 </div>
-                <button className="ui button width-container button-color" type="submit" onClick={() => addUser()}>Submit</button>
+                <button className="ui button width-container button-color" type="submit" onClick={() => addUser()}>Sign in</button>
                 <div className="field">
               {/* <div className="ui checkbox">
                 <input type="checkbox" className="hidden" /> */}
