@@ -51,15 +51,14 @@ demo: http://s3-expense-reimbursement-system.s3-us-west-1.amazonaws.com/index.ht
 
 #### &#x128280; Default accounts
 
-==Marked text==
 </div> 
 
-```
-Employee:
--username: EmployeeUser
--password: 1234
+```diff
+- Employee:
+    username: EmployeeUser
+    password: 1234
 
-Finance Manager:
--username: ManagerUser
--password: 5678
+- Finance Manager:
+    username: ManagerUser
+    password: 5678
 ```
