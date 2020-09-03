@@ -30,22 +30,6 @@ demo:
 - [x] Jest/Enzyme
 - [x] Git SCM (on GitHub)
 
-## Init Instructions
-- install node 6.14.4 or higher
-
-### Server - Express
-- _server/_ npm install
-- npm start
-
-### Client - React
-- _client/_ npm install
-- npm start
-
-
-### Test Coverage
-  - npm test
-  - view in browser: coverage/icon-report/index.html
-
 ## User Login
 <div id="anchor">
 
@@ -63,4 +47,18 @@ Finance Manager:
 -password: 5678
 ```
 
-</div>
+## Init Instructions
+- install node 6.14.4 or higher
+
+### Server - Express
+- _server/_ npm install
+- npm start
+
+### Client - React
+- _client/_ npm install
+- npm start
+
+
+### Test Coverage
+  - npm test
+  - view in browser: coverage/icon-report/index.html
