@@ -51,7 +51,6 @@ demo:
 
 #### &#x128280; Default accounts
 
-- ![#f03c15] `#f03c15`
 </div> 
 
 ```
