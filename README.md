@@ -47,9 +47,8 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
   - view in browser: coverage/icon-report/index.html
 
 ## User login instructions
-1. Refer to video above for website interaction options. 
-2. Live demo: http://s3-expense-reimbursement-system.s3-us-west-1.amazonaws.com/index.html
-3. Copy & paste from any default account options below to sign in.
+1. Refer to video above for website feature options. 
+2. Copy & paste from any default account options below to sign in to live demo.
 
 <div id="anchor">
 
