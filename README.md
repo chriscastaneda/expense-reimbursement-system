@@ -7,7 +7,7 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 - Peer-to-peer interaction
 - image uploading
 
-demo: http://s3-expense-reimbursement-system.s3-us-west-1.amazonaws.com/index.html
+**Live Demo**: http://s3-expense-reimbursement-system.s3-us-west-1.amazonaws.com/index.html
 [![Demo](https://github.com/chriscastaneda/rev-p1-expense-reimbursement-system/blob/master/assets/img/demo_snip.PNG)](https://drive.google.com/file/d/1oSlsYX0GcenCaFCzxPvDs2pmb5mroEO3/view?usp=sharing)
 
 ## Features
@@ -30,6 +30,26 @@ demo: http://s3-expense-reimbursement-system.s3-us-west-1.amazonaws.com/index.ht
 - [x] Jest/Enzyme
 - [x] Git SCM (on GitHub)
 
+## Login instructions
+1. Refer to video above for website features. 
+2. Enter any default account options below to sign-in to live demo.
+
+<div id="anchor">
+
+#### Default accounts
+
+</div> 
+
+```diff
+- Employee:
+    username: EmployeeUser
+    password: 1234
+
+- Finance Manager:
+    username: ManagerUser
+    password: 5678
+```
+
 ## Init Instructions
 - install node 6.14.4 or higher
 
@@ -44,21 +64,5 @@ demo: http://s3-expense-reimbursement-system.s3-us-west-1.amazonaws.com/index.ht
 
 ### Test Coverage
   - npm test
-  - view in browser: coverage/icon-report/index.html
+  - view in browser: [coverage/icon-report/index.html](coverage/icon-report/index.html)
 
-## User Login
-<div id="anchor">
-
-#### &#x128280; Default accounts
-
-</div> 
-
-```diff
-- Employee:
-    username: EmployeeUser
-    password: 1234
-
-- Finance Manager:
-    username: ManagerUser
-    password: 5678
-```
