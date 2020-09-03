@@ -8,6 +8,8 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 - image uploading
 
 **Live Demo**: http://s3-expense-reimbursement-system.s3-us-west-1.amazonaws.com/index.html
+
+**Preview:**
 [![Demo](https://github.com/chriscastaneda/rev-p1-expense-reimbursement-system/blob/master/assets/img/demo_snip.PNG)](https://drive.google.com/file/d/1oSlsYX0GcenCaFCzxPvDs2pmb5mroEO3/view?usp=sharing)
 
 ## Features
