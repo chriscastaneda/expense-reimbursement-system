@@ -66,5 +66,5 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 
 ### Test Coverage
   - npm test
-  - view in browser: [coverage/icon-report/index.html](coverage/icon-report/index.html)
+  - view results in browser: coverage/icon-report/index.html
 
