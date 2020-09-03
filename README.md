@@ -54,11 +54,11 @@ demo: http://s3-expense-reimbursement-system.s3-us-west-1.amazonaws.com/index.ht
 </div> 
 
 ```diff
-+ Employee:
+- Employee:
     username: EmployeeUser
     password: 1234
 
-+ Finance Manager:
+- Finance Manager:
     username: ManagerUser
     password: 5678
 ```
