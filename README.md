@@ -7,8 +7,8 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 - Peer-to-peer interaction
 - image uploading
 
-demo:
-[![Demo](https://github.com/chriscastaneda/rev-p3-stackoverflow/blob/master/demo_snip.PNG)](https://drive.google.com/file/d/1oSlsYX0GcenCaFCzxPvDs2pmb5mroEO3/view?usp=sharing)
+demo: http://s3-expense-reimbursement-system.s3-us-west-1.amazonaws.com/index.html
+[![Demo](https://github.com/chriscastaneda/rev-p1-expense-reimbursement-system/blob/master/assets/img/demo_snip.PNG)](https://drive.google.com/file/d/1oSlsYX0GcenCaFCzxPvDs2pmb5mroEO3/view?usp=sharing)
 
 ## Features
 - Documentation (all methods have basic documentation)
@@ -50,16 +50,15 @@ demo:
 <div id="anchor">
 
 #### &#x128280; Default accounts
+
 </div> 
 
-```
-Employee:
--username: EmployeeUser
--password: 1234
+```diff
+- Employee:
+    username: EmployeeUser
+    password: 1234
 
-Finance Manager:
--username: ManagerUser
--password: 5678
+- Finance Manager:
+    username: ManagerUser
+    password: 5678
 ```
-
-</div>
