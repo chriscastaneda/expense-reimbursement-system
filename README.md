@@ -46,7 +46,11 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
   - npm test
   - view in browser: coverage/icon-report/index.html
 
-## User Login
+## User login instructions
+1. View video above for interaction references. 
+2. Live demo: http://s3-expense-reimbursement-system.s3-us-west-1.amazonaws.com/index.html
+3. Copy & paste from any default account options below to sign in.
+
 <div id="anchor">
 
 #### &#x128280; Default accounts
