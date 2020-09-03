@@ -55,8 +55,8 @@ demo: http://s3-expense-reimbursement-system.s3-us-west-1.amazonaws.com/index.ht
 
 ```diff
 - Employee:
-    @username: EmployeeUser@
-    @@password: 1234@@
+    @ username: EmployeeUser @
+    @@ password: 1234 @@
 
 @ Finance Manager:
     username: ManagerUser
