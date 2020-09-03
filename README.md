@@ -30,22 +30,6 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 - [x] Jest/Enzyme
 - [x] Git SCM (on GitHub)
 
-## Init Instructions
-- install node 6.14.4 or higher
-
-### Server - Express
-- _server/_ npm install
-- npm start
-
-### Client - React
-- _client/_ npm install
-- npm start
-
-
-### Test Coverage
-  - npm test
-  - view in browser: coverage/icon-report/index.html
-
 ## User login instructions
 1. Refer to video above for website features. 
 2. Enter any default account options below to sign in to live demo.
@@ -65,3 +49,20 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
     username: ManagerUser
     password: 5678
 ```
+
+## Init Instructions
+- install node 6.14.4 or higher
+
+### Server - Express
+- _server/_ npm install
+- npm start
+
+### Client - React
+- _client/_ npm install
+- npm start
+
+
+### Test Coverage
+  - npm test
+  - view in browser: coverage/icon-report/index.html
+
