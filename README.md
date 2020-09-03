@@ -36,7 +36,7 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 
 <div id="anchor">
 
-#### &#x128280; Default accounts
+#### Default accounts
 
 </div> 
 
