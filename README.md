@@ -32,7 +32,7 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 
 ## Login instructions
 1. Refer to video above for website features. 
-2. Enter any default account options below to sign in to live demo.
+2. Enter any default account options below to sign-in to live demo.
 
 <div id="anchor">
 
