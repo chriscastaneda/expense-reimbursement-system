@@ -49,7 +49,7 @@ demo:
 ## User Login
 <div id="anchor">
 
-#### &#x128280; Default accounts
+#### &#x128280; ![#f03c15] Default accounts
 </div> 
 
 ```
