@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import './App.css';
 // import { LoginComponent } from './components/Login/login.component';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect, HashRouter } from 'react-router-dom';
 import { AccountComponent } from './components/employee/accounts.component';
 import NavbarComponent from './components/employee/navbar.component';
 // import { EmpolyeeDashboardComponent } from './components/employee/employee.dashboard.component';
@@ -16,11 +16,11 @@ const EmpolyeeDashboardComponent = lazy(() => import('./components/employee/empl
 
 
 function App() {
-  const isEmployee = localStorage.getItem('userName') === 'EmployeeUser';
-  const isManager = localStorage.getItem('userName') === 'ManagerUser';
+  // const isEmployee = localStorage.getItem('userName') === 'EmployeeUser';
+  // const isManager = localStorage.getItem('userName') === 'ManagerUser';
 
   return (
-    <BrowserRouter>
+    <HashRouter>
     <div className="App">
         {/* <p>User Role: { isEmployee ? 'Employee' : 'Manager/OTHER' }</p> */}
         <main>
@@ -31,11 +31,11 @@ function App() {
                 <LoginComponent />
               </Route>
               
-              <Route exact path="/redirect">
+              {/* <Route path="/redirect">
               { isEmployee ? (<Redirect to="/employee"/>) : 
                 (isManager ? (<Redirect to="/manager"/>) : <Redirect to="/"/> )
               }
-              </Route>
+              </Route> */}
 
               <React.Fragment>
               <NavbarComponent />
@@ -62,7 +62,7 @@ function App() {
           </Suspense>
         </main>
     </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

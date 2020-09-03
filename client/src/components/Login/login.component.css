@@ -28,8 +28,8 @@
   min-height: calc(100vh - 70px);
   padding-top: 300px;
   padding-right: 0px;
-  padding-bottom: 0;
-  padding-left: 0p; 
+  padding-bottom: 300px;
+  padding-left: 0px;
   margin-left: auto;
   margin-right: 200px;
 }

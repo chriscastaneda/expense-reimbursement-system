@@ -39,7 +39,14 @@ export const LoginComponent:React.FC = ()=>{
     localStorage.setItem('roleID', response.data.roleID); 
     localStorage.setItem('accessToken', response.data.accessToken); 
 
-    history.push('/redirect'); //route path to app.ts
+    if (localStorage.getItem('userName') === 'EmployeeUser') {
+      history.push('/employee');
+    }else if(localStorage.getItem('userName') === 'ManagerUser'){
+      history.push('/manager');
+    }else{
+      history.push('/'); //route path to app.ts
+    }
+    
   }
 
   const addUser = async () => {

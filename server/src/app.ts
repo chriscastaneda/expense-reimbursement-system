@@ -13,7 +13,7 @@ app.set('port',port);//set port globably
 
 /**CORS Middleware */
 app.use((request, response, next)=> {
-    response.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
+    response.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001'); //REplace url with process.env.Variable
     response.setHeader('Access-Control-Allow-Headers', 'content-type, authorization');
     response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT');
     
