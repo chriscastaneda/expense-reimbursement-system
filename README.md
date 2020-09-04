@@ -56,11 +56,11 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 - install node 6.14.4 or higher
 
 ### Server - Express
-- _server/_ npm install
+- _cd server/_ npm install
 - npm start
 
 ### Client - React
-- _client/_ npm install
+- _cd client/_ npm install
 - npm start
 
 
