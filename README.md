@@ -59,7 +59,7 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 - _cd server/_ npm install
 - npm start
 
-### Client - React
+### Client - React JS
 - _cd client/_ npm install
 - npm start
 
