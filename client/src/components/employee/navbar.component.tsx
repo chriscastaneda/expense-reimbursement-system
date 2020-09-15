@@ -40,7 +40,7 @@ const NavbarComponent: React.FC<RouteComponentProps> = (props) => {
         // <nav class="navbar navbar-light" style="background-color: #e3f2fd;"></nav>
             <nav className="navbar navbar-expand-lg navbar-light" id="navbar" >
 
-  <a className="navbar-brand font-color" href="#" >Reimburse Trip</a>
+  <a className="navbar-brand font-color" >Reimburse Trip</a>
 
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
